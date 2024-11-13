@@ -80,8 +80,7 @@ export const styles = {
     transition-all duration-200
   `,
   cardBack: `
-    relative w-[280px] h-[440px] rounded-lg 
-    bg-gray-200 
+    relative w-[280px] h-[440px] rounded-lg
     flex items-center justify-center 
     shadow-lg 
     transition-all duration-200

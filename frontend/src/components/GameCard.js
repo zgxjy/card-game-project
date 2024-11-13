@@ -39,7 +39,7 @@ const ImagePlaceholder = () => (
   </div>
 );
 
-const CardImage = ({ image }) => (
+const CardFrontImage = ({ image }) => (
   <div className={styles.cardImage}>
     <div className={styles.imageContainer}> 
       {image && image.trim() ? (
@@ -101,7 +101,7 @@ const CardFront = ({ cardtype, title, description, tags = [], properties = {}, i
     <CardFrame type={cardtype}>
       <div className="h-full flex flex-col">
         <CardHeader title={title} type={cardtype} />
-        <CardImage image={image} />
+        <CardFrontImage image={image} />
         <CardProperties properties={properties} />
         <CardDescription description={description} tags={tags} />
       </div>
@@ -109,17 +109,44 @@ const CardFront = ({ cardtype, title, description, tags = [], properties = {}, i
   );
 };
 
-const CardBack = () => (
-  <div className={styles.cardBack}>
-    <div className="text-xl font-semibold text-gray-700">Game Card</div>
-    <p className="text-sm text-gray-500">Flip to reveal the card details</p>
-  </div>
-);
+const CardBack = ({ backimage='https://tse2-mm.cn.bing.net/th/id/OIP-C.8JD_DFCA9kDlb_fM3371PgHaKa?rs=1&pid=ImgDetMain', cardtype }) => {
+  const backgroundImage = backimage ? `url(${backimage})` : null;
+  const cardBackgroundClass = cardtype ? CARD_THEMES[cardtype].background : 'bg-black/10';
 
-const GameCard = ({ isFlipped, ...props }) => {
+  return (
+    <div
+      className={`${styles.cardBack} ${backgroundImage ? 'bg-cover bg-center' : ''}`}
+      style={{ backgroundImage }}
+    >
+      {/* 如果没有背景图片，并且有cardtype，显示对应背景色 */}
+      {!backgroundImage && cardtype && (
+        <div className={`flex items-center justify-center w-full h-full ${cardBackgroundClass}`}>
+          <div className="w-24 h-24 bg-black/70 rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 bg-white rounded-full"></div>
+          </div>
+        </div>
+      )}
+      
+      {/* 如果没有背景图片且没有cardtype，使用默认的背景颜色 */}
+      {!backgroundImage && !cardtype && (
+        <div className="flex items-center justify-center w-full h-full bg-black/10">
+          <div className="w-24 h-24 bg-black/70 rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 bg-white rounded-full"></div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, properties, image }) => {
+  const cardFrontProps = {cardtype, title, description, tags, properties, image };
+  const cardBackProps = {cardtype};
+
   return (
     <div className={`transform ${isFlipped ? 'rotate-y-180' : 'rotate-y-0'} transition-all duration-500`}>
-      {isFlipped ? <CardBack /> : <CardFront {...props} />}
+      {isFlipped ? <CardBack {...cardBackProps} /> : <CardFront {...cardFrontProps} />}
     </div>
   );
 };
