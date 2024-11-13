@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=W:\My personal files sync\OneDrive\My work note\4-Projects\CAREYOU\card-game-project\backend\venv
+set VIRTUAL_ENV=C:\Users\yuanj\Desktop\card-game-project\backend\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

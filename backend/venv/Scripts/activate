@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="W:\My personal files sync\OneDrive\My work note\4-Projects\CAREYOU\card-game-project\backend\venv"
+VIRTUAL_ENV="C:\Users\yuanj\Desktop\card-game-project\backend\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
