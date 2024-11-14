@@ -125,8 +125,8 @@ export const noiseTexture = `
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../imgs/noise_texture.jpg");
-    opacity: 0.2;
+    background-image: url("/imgs/noise.jpg");
+    opacity: 0.1;
     mix-blend-mode: overlay;
   }
 
@@ -138,7 +138,7 @@ export const noiseTexture = `
     width: 100%;
     height: 100%;
     background: inherit;
-    opacity: 0.8;
+    opacity: 0.3;
     mix-blend-mode: multiply;
   }
 `;

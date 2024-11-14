@@ -101,7 +101,7 @@ const CardBack = ({ backimage, cardtype }) => {
 };
 
 const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, properties, image }) => {
-  const cardFrontProps = { cardtype, title, description, tags, properties, image };
+  const cardFrontProps = { cardtype, title, description, tags, properties, image:"/imgs/img.png" };
   const cardBackProps = { cardtype, backimage:'https://th.bing.com/th/id/R.c9c6efd9ddb4fcfbb92a83d724f0aa97?rik=zyl1%2f2Jt2YV6VQ&pid=ImgRaw&r=0' };
 
   return (
