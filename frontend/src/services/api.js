@@ -29,40 +29,42 @@ export const addCards = async (cardData) => {
   }
 };
 
-//更新卡片信息
-export const updateCardImage = async (cardId, newImageUrl) => {
+
+// 通用的更新卡片信息方法，可以更新任何字段
+export const updateCard = async (cardId, updateData) => {
   try {
-    const response = await fetch(`/update_card/${cardId}`, {
+    const response = await fetch(`${API_BASE_URL}/update_card/${cardId}`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
+      headers: { 
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ image: newImageUrl }),  // 更新图片 URL
+      body: JSON.stringify(updateData)
     });
     
-    if (response.ok) {
-      alert('Card updated successfully');
-    } else {
-      alert('Card not found');
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to update card');
     }
+    
+    return await response.json();
   } catch (error) {
     console.error('Error updating card:', error);
+    throw error;
   }
 };
 
 //删除卡片数据
-export const deleteCardImage = async (cardId) => {
+export const deleteCard = async (cardId) => {
   try {
-    const response = await fetch(`/delete_card/${cardId}`, {
+    const response = await fetch(`${API_BASE_URL}/delete_card`, {
       method: 'DELETE',
     });
-    
-    if (response.ok) {
-      alert('Card deleted successfully');
-    } else {
-      alert('Card not found');
+    if (!response.ok) {
+      throw new Error('Failed to delete card');
     }
+    return await response.json();
   } catch (error) {
     console.error('Error deleting card:', error);
+    throw error;
   }
 };
