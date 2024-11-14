@@ -1,0 +1,2617 @@
+[{
+  "_id": {
+    "$oid": "6734613f0c300ac75c3bab5e"
+  },
+  "cardtype": "Boundary",
+  "title": "物理界限",
+  "description": "物理界限指一个人的个人空间和他能够接受的身体接触程度。每个人对自己的身体有一定的了解，对物理空间的需求和接受的身体接触也各不相同。随着环境、关系亲疏以及舒适感的变化，物理界限也会变化。因此，及时向他人说明个人空间的要求和身体接触的限制是必要的。",
+  "tags": [
+    "物理界限",
+    "个人空间",
+    "身体接触"
+  ],
+  "image": "https://s.coze.cn/t/CgQFMPYZLghAGrAC/",
+  "cardName": "界限卡"
+},
+{
+  "_id": {
+    "$oid": "6734613f0c300ac75c3bab5f"
+  },
+  "cardtype": "Boundary",
+  "title": "性界限",
+  "description": "绝不能未经他人允许就触摸对方的身体，更不能对未成年人实施任何性行为。未经双方同意的身体接触、性言论或性行为都是违反性界限的表现。成年人在面对未成年人时要时刻注意自己的言行举止。",
+  "tags": [
+    "性界限",
+    "性行为",
+    "隐私"
+  ],
+  "image": "https://s.coze.cn/t/CngAQnAoEPKsQZYm/",
+  "cardName": "界限卡"
+},
+{
+  "_id": {
+    "$oid": "6734613f0c300ac75c3bab60"
+  },
+  "cardtype": "Boundary",
+  "title": "认知界限",
+  "description": "人人都有权对任何事发表自己的看法，别人无权忽视、轻视或取笑你的观点。选择合适的话题也是尊重认知界限的体现。父母与孩子之间的不当交流也是对认知界限的侵犯。",
+  "tags": [
+    "认知界限",
+    "思维",
+    "看法"
+  ],
+  "image": "https://s.coze.cn/t/Cm571gKb968WZa8e/",
+  "cardName": "界限卡"
+},
+{
+  "_id": {
+    "$oid": "6734613f0c300ac75c3bab61"
+  },
+  "cardtype": "Boundary",
+  "title": "情感界限",
+  "description": "情感界限涉及我们与他人分享感受的方式，侵犯情感界限的表现包括情感不被重视、情绪控制等。过度发泄或忽视别人的感受，都是情感界限被侵犯的迹象。",
+  "tags": [
+    "情感界限",
+    "情绪",
+    "感受"
+  ],
+  "image": "https://s.coze.cn/t/CoLn_wLT_AZehpw-/",
+  "cardName": "界限卡"
+},
+{
+  "_id": {
+    "$oid": "6734613f0c300ac75c3bab62"
+  },
+  "cardtype": "Boundary",
+  "title": "物质界限",
+  "description": "物质界限与个人财产相关，指我们对自己物品的所有权以及如何管理这些物品。借物不还、损坏他人财物等行为都侵犯了物质界限。",
+  "tags": [
+    "物质界限",
+    "财产",
+    "物品管理"
+  ],
+  "image": "https://s.coze.cn/t/ChoO_da7rQ0LfQw6/",
+  "cardName": "界限卡"
+},
+{
+  "_id": {
+    "$oid": "6734613f0c300ac75c3bab63"
+  },
+  "cardtype": "Boundary",
+  "title": "时间界限",
+  "description": "时间界限不仅涉及一个人如何管理时间，还包括如何处理他人请求和安排个人空闲时间。过度牺牲自己的时间为他人服务，违反了时间界限。",
+  "tags": [
+    "时间界限",
+    "时间管理",
+    "自我关爱"
+  ],
+  "image": "https://s.coze.cn/t/CqghQTME2ZZV8JUy/",
+  "cardName": "界限卡"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e6d"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡19",
+  "title": "情绪过度反应",
+  "description": "朋友对你的小问题反应过度，影响你的情绪。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/CjnGUeGAEMoMQKUI/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e6e"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡20",
+  "title": "负面情绪影响",
+  "description": "某人不断用负面情绪影响你，让你感觉疲惫。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/Cqm3GodvgD0vgK40/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e6f"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡21",
+  "title": "情感勒索",
+  "description": "你的伴侣在争吵中使用情感勒索，让你感到被操控。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/Cq4jYNfmb9mZOmI-/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e70"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡22",
+  "title": "情感负担",
+  "description": "家人频繁在你面前抱怨，影响你的情绪和心态。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/Cm0oJWb5DfYMifAI/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e71"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡23",
+  "title": "情感隐私侵犯",
+  "description": "你的朋友在公众场合揭露了你私密的情感问题，使你感到极度尴尬。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CvtfK_3mY5_MC5gA/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e72"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡24",
+  "title": "情感操控",
+  "description": "有人故意玩弄你的情感，使你感到极度不安和困扰。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Cnl2WmEPrZMk5xcw/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e73"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡25",
+  "title": "物品借用",
+  "description": "你的朋友借用你的书籍或物品后没有归还。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/Cm_gGyMoVHq4KGkM/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e74"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡26",
+  "title": "物品使用",
+  "description": "你的室友用你的电器而没有告知你。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/CgMLAfOFZDz9Jrww/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e75"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡27",
+  "title": "财物占用",
+  "description": "某人未经你同意，使用了你的一部分财物或资源。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/CpXmcpuuev9cemQo/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e76"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡28",
+  "title": "工作资源占用",
+  "description": "你的同事随意动用了你工作中的物品，未征得同意。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/Chsrdl2LxLjoefQo/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e77"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡29",
+  "title": "财务盗用",
+  "description": "你的私人账户被他人未经允许使用，造成经济损失。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Cm4IOtcehvg3ENYi/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e78"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡30",
+  "title": "物品损坏",
+  "description": "有人故意损坏你的个人物品，并且拒绝赔偿。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CoECYMvKljvS3OAg/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e79"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡31",
+  "title": "休息时间占用",
+  "description": "朋友要求你在你休息时间做额外的工作。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/Chthi3Owij5fSLoo/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e7a"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡32",
+  "title": "工作时间外联系",
+  "description": "同事在工作时间外频繁联系你，影响你的个人时间。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/ClbV6X10l6HzSz0-/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e7b"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡33",
+  "title": "加班要求",
+  "description": "上司要求你在规定的工作时间之外完成任务，影响了你的私人时间。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/Cj7_DX7-gQPZfOom/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e7c"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡34",
+  "title": "工作干扰",
+  "description": "家人不断干扰你的工作时间，让你无法集中精力完成工作。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/CiNiZb6FYjUCY00c/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e7d"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡35",
+  "title": "时间表调整",
+  "description": "你的老板强行调整你的工作时间表，严重影响了你的生活安排。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Cu6AyEpIL0lRKMQi/"
+},
+{
+  "_id": {
+    "$oid": "67346d6c2128857f6b3e8e7e"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡36",
+  "title": "项目延迟",
+  "description": "某人故意延迟你的重要项目或任务，造成你的时间紧迫。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Cjdpnvi_uuv0Jh0I/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e7f"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡1",
+  "title": "公共场合碰撞",
+  "description": "你在公共场合被无意间碰撞到，对方没有道歉。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/Clx6KRxpJiD81bAu/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e80"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡2",
+  "title": "工作空间干扰",
+  "description": "朋友在你工作空间里随意走动，影响你的专注。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/CnKwy8LRd7GyMY0i/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e81"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡3",
+  "title": "个人空间被占用",
+  "description": "室友未经你同意，使用了你的个人空间来存放他们的物品。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/Cvtvpp_Sp_c91U84/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e82"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡4",
+  "title": "身体距离侵犯",
+  "description": "在公共场合，有人不断接近你，让你感到不安。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/CkTR-PK2KXESTMcS/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e83"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡5",
+  "title": "器械使用干扰",
+  "description": "在健身房里，有人故意用你正用的器械，使你无法继续锻炼。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CrjAPolGavMfjfIW/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e84"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡6",
+  "title": "私人车位占用",
+  "description": "你的私人车位被他人占用，对方拒绝移动车辆。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Cju5gVpGtAu4anko/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e85"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡7",
+  "title": "性暗示笑话",
+  "description": "有人在社交场合开了不适当的性暗示笑话，让你感到不适。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/CvDA1z291aFhX4ku/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e86"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡8",
+  "title": "轻微身体接触",
+  "description": "某人无意中触碰到你的身体部位，但未造成实质性侵犯。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/CgB831fJniuFfmMe/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e87"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡9",
+  "title": "不适问题询问",
+  "description": "在聚会上，有人对你的个人生活提出不合适的问题，让你感到被侵犯。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/CiNkFUszIYHwJPs0/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e88"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡10",
+  "title": "私人空间侵入",
+  "description": "有人未经同意在你的私人房间里出现，让你感到不适。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/Cg4qZhccurFYSGIK/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e89"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡11",
+  "title": "性骚扰",
+  "description": "你在工作场合受到持续的性骚扰，对方不停地发出不适的言论。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CmfosUtF8G7uSLcs/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e8a"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡12",
+  "title": "强行接触",
+  "description": "有个人试图强行侵犯你的个人界限，例如在你反复拒绝后仍坚持不懈。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CikThTpdEIemx7os/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e8b"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡13",
+  "title": "频繁打断",
+  "description": "有人频繁打断你说话，使你无法完成思考或表达。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/CtJny0Te43emzjU-/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e8c"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡14",
+  "title": "无关询问",
+  "description": "同事对你进行过多的无关问题询问，让你无法集中注意力。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "低"
+  },
+  "image": "https://s.coze.cn/t/CopY8TrmOWKe1K0C/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e8d"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡15",
+  "title": "意见忽视",
+  "description": "朋友无视你的意见，坚持用自己的想法来决定计划。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/CoYHGIKG1-mitKUu/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e8e"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡16",
+  "title": "观点曲解",
+  "description": "在讨论中，有人故意曲解你的观点来引发争论。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "中"
+  },
+  "image": "https://s.coze.cn/t/Cvez-D5euCwCYtIA/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e8f"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡17",
+  "title": "信息操控",
+  "description": "你在团队项目中被强迫接受错误的信息或决策，导致项目失败。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CvZv4ZOeSy0K0xQG/"
+},
+{
+  "_id": {
+    "$oid": "67346e4e2128857f6b3e8e90"
+  },
+  "cardtype": "Scenario",
+  "cardName": "情境卡18",
+  "title": "虚假信息传播",
+  "description": "有人故意散布关于你的虚假信息，影响你在他人眼中的形象。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Clk7xDSUiACwFrok/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e91"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡1",
+  "title": "公共场合身体接触",
+  "description": "你在公共场合被迫接受陌生人的身体接触，并且对方试图越过你的个人空间界限。",
+  "tags": [
+    "物理界限",
+    "性界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CirNAwIUZWUZomUm/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e92"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡2",
+  "title": "工作空间干扰",
+  "description": "你的办公空间被不断打扰，影响你专注于思考和处理工作任务。",
+  "tags": [
+    "物理界限",
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Cp3DXeQ575Oseb40/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e93"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡3",
+  "title": "私人空间内情感不适",
+  "description": "有人在你私人空间内做出让你感到情感不适的行为，例如过于亲密的言辞或举动。",
+  "tags": [
+    "物理界限",
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CvVwC-VS66C3B9E4/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e94"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡4",
+  "title": "个人物品放置问题",
+  "description": "你的个人物品被放置在不应有的地方，影响了你的物理空间和物质资源的管理。",
+  "tags": [
+    "物理界限",
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/ChglW9xudUy-_n8C/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e95"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡5",
+  "title": "私人空间与时间冲突",
+  "description": "你的私人空间被占用，导致你无法按照预定时间完成任务。",
+  "tags": [
+    "物理界限",
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CnNNDmkhfmbXHo4g/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e96"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡6",
+  "title": "性暗示认知干扰",
+  "description": "在与你交谈时，有人频繁使用性暗示或不适当的言辞，干扰了你的思考和注意力。",
+  "tags": [
+    "性界限",
+    "认知界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CsBKyC2Wm_TNKdwe/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e97"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡7",
+  "title": "情感与性界限冲突",
+  "description": "有人在社交场合中对你表现出不适当的性关注，并试图影响你的情感状态。",
+  "tags": [
+    "性界限",
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CinYEq1q0afIMtU4/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e98"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡8",
+  "title": "物质与性界限侵犯",
+  "description": "你的个人物品被带入涉及性内容的场合，导致你感到物质和性界限被侵犯。",
+  "tags": [
+    "性界限",
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CjfLS5qUqTsY8wQ4/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e99"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡9",
+  "title": "任务中的性界限侵犯",
+  "description": "你在处理任务时被迫应对不适当的性行为，使你无法按时完成工作。",
+  "tags": [
+    "性界限",
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/ClIXQto2dP4qaeEW/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e9a"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡10",
+  "title": "情感压力影响认知",
+  "description": "你在工作中感到情感压力，这种压力使你难以集中注意力进行认知任务。",
+  "tags": [
+    "认知界限",
+    "情感界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CrxPbtvYvanHPeQ6/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e9b"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡11",
+  "title": "资源管理困境",
+  "description": "你在处理物质资源时，因认知负担过重而难以做出合理的资源分配决策。",
+  "tags": [
+    "认知界限",
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CtDJIZyPRXHDzvIS/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e9c"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡12",
+  "title": "时间压力下的认知任务",
+  "description": "你在紧迫的时间限制下处理复杂的认知任务，导致无法有效地完成工作。",
+  "tags": [
+    "认知界限",
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Ck5CbrnPH5PfNAIq/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e9d"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡13",
+  "title": "情感干扰管理物品",
+  "description": "在处理个人物品时，情感问题干扰了你对物质资源的合理管理。",
+  "tags": [
+    "情感界限",
+    "物质界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Cnpsmmb4tXwo2Rg6/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e9e"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡14",
+  "title": "情感影响时间安排",
+  "description": "你在处理紧急任务时，情感问题使你无法按时完成工作，影响了你的时间安排。",
+  "tags": [
+    "情感界限",
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/CkqaG65Bydv2k406/"
+},
+{
+  "_id": {
+    "$oid": "67346f852128857f6b3e8e9f"
+  },
+  "cardtype": "Scenario",
+  "cardName": "联合情境卡15",
+  "title": "资源与时间冲突",
+  "description": "你在管理物质资源时，因时间紧迫而无法合理分配资源，影响了你的工作效率。",
+  "tags": [
+    "物质界限",
+    "时间界限"
+  ],
+  "properties": {
+    "difficulty": "高"
+  },
+  "image": "https://s.coze.cn/t/Colkm7klHTZ9N6EQ/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea0"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 - 低 - 轻微提醒",
+  "title": "轻微提醒",
+  "description": "轻声提醒对方你不喜欢被碰触。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Cq_0JVQ3NYK2ErUc/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea1"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 - 低 - 调整位置",
+  "title": "调整位置",
+  "description": "移动到一个你感到更舒适的位置。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/CltoimJY-CX8Pjws/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea2"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 - 中 - 明确界限",
+  "title": "明确界限",
+  "description": "清晰地告诉对方哪些身体接触是不可接受的。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CrzU-P-mlzgOrA0e/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea3"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 - 中 - 寻求帮助",
+  "title": "寻求帮助",
+  "description": "请求周围人的帮助来维护你的物理界限。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CgGjbcFwnIysykEs/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea4"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 - 高 - 坚持离开",
+  "title": "坚持离开",
+  "description": "坚决离开当前环境，保护你的物理界限。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CvZ80hSaYwSomQgS/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea5"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 - 高 - 使用防护",
+  "title": "使用防护",
+  "description": "使用物理屏障（如桌子）来阻挡不适当的接触。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CvMCfvrkqsG9s0Ek/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea6"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 - 低 - 轻微抗议",
+  "title": "轻微抗议",
+  "description": "对不适当的性言论表示轻微抗议。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Ck2j8f3Ui_FYvFUk/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea7"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 - 低 - 转移话题",
+  "title": "转移话题",
+  "description": "改变话题，避免进一步的性暗示。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Ctmp4nYiPrbPYhEs/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea8"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 - 中 - 明确拒绝",
+  "title": "明确拒绝",
+  "description": "直接明确地拒绝不适当的性言论或行为。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cqv7-WfafZbChiAg/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8ea9"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 - 中 - 报告情况",
+  "title": "报告情况",
+  "description": "向权威机构或上级报告性骚扰情况。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CqCSsEWwCwAoBrg-/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8eaa"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 - 高 - 终止互动",
+  "title": "终止互动",
+  "description": "立刻终止所有不适当的互动，并离开现场。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CsG2f_SxK8x97w4Y/"
+},
+{
+  "_id": {
+    "$oid": "6734701b2128857f6b3e8eab"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 - 高 - 寻求法律帮助",
+  "title": "寻求法律帮助",
+  "description": "寻求法律援助来保护你的性界限。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/Ci1-UwdE2TpAsBUA/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eac"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 - 低 - 简单澄清",
+  "title": "简单澄清",
+  "description": "迅速澄清对方的误解，让对方知道你的观点。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/CnTGy17Gzj97uQEe/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ead"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 - 低 - 调整表达",
+  "title": "调整表达",
+  "description": "重新组织你的话语，以便更清晰地表达你的观点。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/ClghJ7I4GgUp5KUy/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eae"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 - 中 - 解释立场",
+  "title": "解释立场",
+  "description": "清楚地解释你的观点和立场，以防止误解。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/ClKuhbDIUQxdFYkq/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eaf"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 - 中 - 寻求调解",
+  "title": "寻求调解",
+  "description": "请求中立的第三方帮助澄清误解或争议。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cjr5FpQt0rIfL3cO/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb0"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 - 高 - 制定规则",
+  "title": "制定规则",
+  "description": "设定清晰的规则来避免认知上的冲突。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CrAw6J37c5i7T5s2/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb1"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 - 高 - 提供证据",
+  "title": "提供证据",
+  "description": "提供明确证据来支持你的观点，减少认知冲突。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CrANPN4IZGhgnOA6/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb2"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 - 低 - 表达不适",
+  "title": "表达不适",
+  "description": "简单地表达你对对方情感影响的不适感。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Ch37KOpCni3YU0As/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb3"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 - 低 - 保持冷静",
+  "title": "保持冷静",
+  "description": "保持冷静，不让对方的情感影响你。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/CqXlOUiGLtfRMXoM/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb4"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 - 中 - 设立情感界限",
+  "title": "设立情感界限",
+  "description": "清楚地设定你的情感界限，并要求对方尊重。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cs80Aee3dbiRiZAs/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb5"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 - 中 - 寻求支持",
+  "title": "寻求支持",
+  "description": "从朋友或专业人士那里获得情感支持。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CozWSQhXwMdbIqc-/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb6"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 - 高 - 断绝联系",
+  "title": "断绝联系",
+  "description": "立刻断绝与影响你情感的人的联系。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CsnsiVYkVM3gkx0Q/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb7"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 - 高 - 情感保护计划",
+  "title": "情感保护计划",
+  "description": "制定情感保护计划，以防止未来的情感干扰。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/Ch0g4xq_uSu8fpg4/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb8"
+  },
+  "cardtype": "Response",
+  "cardName": "物质界限 - 低 - 简要提醒",
+  "title": "简要提醒",
+  "description": "轻声提醒对方你的物品不应被借用或使用。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Cm6rvDAIfAZD9fgO/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eb9"
+  },
+  "cardtype": "Response",
+  "cardName": "物质界限 - 低 - 归还物品",
+  "title": "归还物品",
+  "description": "迅速要求对方归还你的物品。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/CtQGOgchKYDU_NAG/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8eba"
+  },
+  "cardtype": "Response",
+  "cardName": "物质界限 - 中 - 设置条件",
+  "title": "设置条件",
+  "description": "明确设置借用物品的条件或规则。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Ci6CrQoHRnrr8uMy/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ebb"
+  },
+  "cardtype": "Response",
+  "cardName": "物质界限 - 中 - 记录损失",
+  "title": "记录损失",
+  "description": "记录物品的损失或损坏，以备后续使用。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CtjxUXzDSq7N7OIC/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ebc"
+  },
+  "cardtype": "Response",
+  "cardName": "物质界限 - 高 - 寻求赔偿",
+  "title": "寻求赔偿",
+  "description": "向对方要求赔偿物品的损坏或丢失。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/Cpfbv6u-2Ibu_2ko/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ebd"
+  },
+  "cardtype": "Response",
+  "cardName": "物质界限 - 高 - 禁止使用",
+  "title": "禁止使用",
+  "description": "设定明确的禁止令，禁止他人使用你的物品。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CjlNDmmkIgvyddkM/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ebe"
+  },
+  "cardtype": "Response",
+  "cardName": "时间界限 - 低 - 设置提醒",
+  "title": "设置提醒",
+  "description": "设置提醒，让对方知道你的时间安排。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Cgu75PtwbPvijgo4/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ebf"
+  },
+  "cardtype": "Response",
+  "cardName": "时间界限 - 低 - 简短回应",
+  "title": "简短回应",
+  "description": "用简短的方式回应对方的时间请求，保护你的时间。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "弱",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Cg8V9F3kkLoXFj4I/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ec0"
+  },
+  "cardtype": "Response",
+  "cardName": "时间界限 - 中 - 明确时间",
+  "title": "明确时间",
+  "description": "清楚地告知对方你可用的时间段，并坚持自己的安排。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CtErCUK7-u5prYY8/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ec1"
+  },
+  "cardtype": "Response",
+  "cardName": "时间界限 - 中 - 优先处理",
+  "title": "优先处理",
+  "description": "优先安排重要任务，避免他人占用你宝贵的时间。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cn0Q3eA4R2xgkKcI/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ec2"
+  },
+  "cardtype": "Response",
+  "cardName": "时间界限 - 高 - 拒绝不合理请求",
+  "title": "拒绝不合理请求",
+  "description": "果断拒绝占用你时间的不合理请求。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/Cu3kfHFhBU6cKWMg/"
+},
+{
+  "_id": {
+    "$oid": "673470b02128857f6b3e8ec3"
+  },
+  "cardtype": "Response",
+  "cardName": "时间界限 - 高 - 设置固定时间",
+  "title": "设置固定时间",
+  "description": "为自己设定固定的时间段，不允许任何干扰。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CsbG1iHTnNwozjAq/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ec4"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 & 性界限 - 强 - 明确个人空间",
+  "title": "明确个人空间",
+  "description": "设定明确的物理空间界限，并清晰地表达你的性界限，要求对方尊重这些界限。",
+  "tags": [
+    "物理界限",
+    "性界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/Cv5vZw2OhmdNuGAm/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ec5"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 & 认知界限 - 中 - 物理隔离区域",
+  "title": "物理隔离区域",
+  "description": "设立物理隔离区域来保护你的认知空间，避免干扰，确保你可以专注于思考。",
+  "tags": [
+    "物理界限",
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cuo5HzFw3I_AQccm/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ec6"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 & 情感界限 - 强 - 情感保护区",
+  "title": "情感保护区",
+  "description": "通过设定物理界限，保护你免受情感侵扰，确保身体接触不影响你的情感状态。",
+  "tags": [
+    "物理界限",
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/Cs1juc6MelDKzKg0/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ec7"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 & 物质界限 - 中 - 物品区域划分",
+  "title": "物品区域划分",
+  "description": "为个人物品设定物理区域，以避免物质资源被无意中占用或混乱。",
+  "tags": [
+    "物理界限",
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/ClKwx0h4l12xjYAC/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ec8"
+  },
+  "cardtype": "Response",
+  "cardName": "物理界限 & 时间界限 - 中 - 时间安排区隔",
+  "title": "时间安排区隔",
+  "description": "设定物理界限来确保你在处理时间安排时不受干扰，保护你的时间安排。",
+  "tags": [
+    "物理界限",
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CiROjpfZUBhLS3Um/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ec9"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 & 认知界限 - 强 - 明确言辞规范",
+  "title": "明确言辞规范",
+  "description": "设定清晰的性言辞规范，确保在认知任务过程中不受性相关言语的干扰。",
+  "tags": [
+    "性界限",
+    "认知界限"
+  ],
+  "properties": {
+    "defense": "强",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CkDA8lj66zGl3uo2/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8eca"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 & 情感界限 - 中 - 情感支持沟通",
+  "title": "情感支持沟通",
+  "description": "确保在处理性界限时，获得足够的情感支持，以避免情感问题加剧。",
+  "tags": [
+    "性界限",
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CviCGS-FXGUiCk02/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ecb"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 & 物质界限 - 中 - 物品使用协议",
+  "title": "物品使用协议",
+  "description": "在涉及性行为的场合中，确保物质资源的使用协议明确，以保护你的物质界限。",
+  "tags": [
+    "性界限",
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/ClbZR6Zcd2VK148O/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ecc"
+  },
+  "cardtype": "Response",
+  "cardName": "性界限 & 时间界限 - 中 - 性活动时间限制",
+  "title": "性活动时间限制",
+  "description": "设定明确的时间限制来管理性相关活动，确保不会干扰到你的时间安排。",
+  "tags": [
+    "性界限",
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Csa9aGxCCDKFvtsm/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ecd"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 & 情感界限 - 中 - 情感支持下的认知管理",
+  "title": "情感支持下的认知管理",
+  "description": "在处理复杂认知任务时，确保情感需求得到满足，以避免情感问题影响认知。",
+  "tags": [
+    "认知界限",
+    "情感界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/ClkBtEu1ucxwK2gM/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ece"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 & 物质界限 - 中 - 物质资源管理",
+  "title": "物质资源管理",
+  "description": "在处理认知任务时，设定物质资源的使用规范，确保不会因为资源问题干扰思考。",
+  "tags": [
+    "认知界限",
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cm95oG9rQLmpGPM4/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ecf"
+  },
+  "cardtype": "Response",
+  "cardName": "认知界限 & 时间界限 - 中 - 时间管理思维安排",
+  "title": "时间管理思维安排",
+  "description": "为认知任务设定时间限制，以避免时间压力影响你的认知能力。",
+  "tags": [
+    "认知界限",
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CtlgvG5KZiIMvk4Y/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ed0"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 & 物质界限 - 中 - 情感影响下的物品管理",
+  "title": "情感影响下的物品管理",
+  "description": "在处理物质资源时，确保情感状态稳定，以避免情感问题影响物品管理。",
+  "tags": [
+    "情感界限",
+    "物质界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CqmHIGGbL5Mg_nkE/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ed1"
+  },
+  "cardtype": "Response",
+  "cardName": "情感界限 & 时间界限 - 中 - 情感管理时间安排",
+  "title": "情感管理时间安排",
+  "description": "在制定时间安排时，考虑情感因素，避免情感问题影响时间管理。",
+  "tags": [
+    "情感界限",
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CvBIvfhXlfWwmIku/"
+},
+{
+  "_id": {
+    "$oid": "6734717b2128857f6b3e8ed2"
+  },
+  "cardtype": "Response",
+  "cardName": "物质界限 & 时间界限 - 中 - 物品使用时间控制",
+  "title": "物品使用时间控制",
+  "description": "设定时间限制来管理物质资源的使用，确保物品在规定时间内得到有效管理。",
+  "tags": [
+    "物质界限",
+    "时间界限"
+  ],
+  "properties": {
+    "defense": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cj_MQleFYBCSNyA0/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ed3"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 - 轻微挤压",
+  "title": "轻微挤压",
+  "description": "使目标玩家的物理界限受损0.5点。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "attack": "低",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Cq4dQr8jAqeVMFoW/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ed4"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 - 物理冲突",
+  "title": "物理冲突",
+  "description": "使目标玩家的物理界限受损1点。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CrQpjgbGNxyvW1cC/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ed5"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 - 剧烈侵犯",
+  "title": "剧烈侵犯",
+  "description": "使目标玩家的物理界限受损2点。",
+  "tags": [
+    "物理界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CpzXKHj_SLjhTXIa/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ed6"
+  },
+  "cardtype": "Attack",
+  "cardName": "性界限 - 轻微触碰",
+  "title": "轻微触碰",
+  "description": "使目标玩家的性界限受损0.5点。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "attack": "低",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Ci-Xt883XgBxf5Uo/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ed7"
+  },
+  "cardtype": "Attack",
+  "cardName": "性界限 - 性暗示",
+  "title": "性暗示",
+  "description": "使目标玩家的性界限受损1点。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CsZb0FctiPjmOqIu/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ed8"
+  },
+  "cardtype": "Attack",
+  "cardName": "性界限 - 性侵犯",
+  "title": "性侵犯",
+  "description": "使目标玩家的性界限受损2点。",
+  "tags": [
+    "性界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CogyWm0KvIwZHyoe/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ed9"
+  },
+  "cardtype": "Attack",
+  "cardName": "认知界限 - 轻微打断",
+  "title": "轻微打断",
+  "description": "目标玩家的认知界限在本回合内受损0.5点。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "attack": "低",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/Ctn_K5K5sODY6uEs/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8eda"
+  },
+  "cardtype": "Attack",
+  "cardName": "认知界限 - 思维干扰",
+  "title": "思维干扰",
+  "description": "目标玩家的认知界限在本回合内受损1点。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cu6FpKbZJ_VmbPo2/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8edb"
+  },
+  "cardtype": "Attack",
+  "cardName": "认知界限 - 严重干扰",
+  "title": "严重干扰",
+  "description": "目标玩家的认知界限在本回合内受损2点。",
+  "tags": [
+    "认知界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/Cut8tTQsLp3ZQd4U/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8edc"
+  },
+  "cardtype": "Attack",
+  "cardName": "情感界限 - 轻微情感冲击",
+  "title": "轻微情感冲击",
+  "description": "目标玩家的情感界限受损0.5点。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "attack": "低",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/ClZifx2BGHrMeLgC/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8edd"
+  },
+  "cardtype": "Attack",
+  "cardName": "情感界限 - 情感打击",
+  "title": "情感打击",
+  "description": "目标玩家的情感界限受损1点。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Ch6SxPRE0d6f218K/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ede"
+  },
+  "cardtype": "Attack",
+  "cardName": "情感界限 - 情感伤害",
+  "title": "情感伤害",
+  "description": "目标玩家的情感界限受损2点。",
+  "tags": [
+    "情感界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CufEwekriGsDs8I8/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8edf"
+  },
+  "cardtype": "Attack",
+  "cardName": "物质界限 - 轻微物品干扰",
+  "title": "轻微物品干扰",
+  "description": "使目标玩家在本回合内无法使用一项物质资源。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "attack": "低",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/CnUfaOzOfvaSM6AM/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ee0"
+  },
+  "cardtype": "Attack",
+  "cardName": "物质界限 - 物品入侵",
+  "title": "物品入侵",
+  "description": "强制目标玩家弃掉一张物质类反应卡。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cpn3A3NCHJHS6UY8/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ee1"
+  },
+  "cardtype": "Attack",
+  "cardName": "物质界限 - 严重物品损坏",
+  "title": "严重物品损坏",
+  "description": "目标玩家的物质界限受损2点，并强制弃掉两张物质类反应卡。",
+  "tags": [
+    "物质界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CmyaOYL19RFj7bwu/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ee2"
+  },
+  "cardtype": "Attack",
+  "cardName": "时间界限 - 时间干扰",
+  "title": "时间干扰",
+  "description": "目标玩家在下回合无法使用时间类反应卡。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "低",
+    "cooldown": 1
+  },
+  "image": "https://s.coze.cn/t/CjTc6nUbCnx_i0w-/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ee3"
+  },
+  "cardtype": "Attack",
+  "cardName": "时间界限 - 时间压力",
+  "title": "时间压力",
+  "description": "目标玩家在下两回合内无法使用时间类反应卡。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CgRKkEogTgIryyE2/"
+},
+{
+  "_id": {
+    "$oid": "6734724f2128857f6b3e8ee4"
+  },
+  "cardtype": "Attack",
+  "cardName": "时间界限 - 时间挤压",
+  "title": "时间挤压",
+  "description": "目标玩家在接下来的三回合内无法使用时间类反应卡，并减少时间界限2点。",
+  "tags": [
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CvdDwjpoG-VgNloQ/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ee5"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 & 性界限 - 身体接触侵犯",
+  "title": "身体接触侵犯",
+  "description": "同时使目标玩家的物理界限和性界限各受损1点。",
+  "tags": [
+    "物理界限",
+    "性界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Ckh6EQy45R2GLHAm/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ee6"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 & 认知界限 - 空间思维干扰",
+  "title": "空间思维干扰",
+  "description": "目标玩家的物理界限受损1点，并在本回合内无法使用认知类反应卡。",
+  "tags": [
+    "物理界限",
+    "认知界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CoB7RxXfoq7qOUk6/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ee7"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 & 情感界限 - 情感身体冲击",
+  "title": "情感身体冲击",
+  "description": "目标玩家的物理界限和情感界限各受损1点。",
+  "tags": [
+    "物理界限",
+    "情感界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/CsmRYaywIvFHUSsE/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ee8"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 & 物质界限 - 物理资源干扰",
+  "title": "物理资源干扰",
+  "description": "目标玩家的物理界限受损1点，并强制弃掉一张物质类反应卡。",
+  "tags": [
+    "物理界限",
+    "物质界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CoYNG4lfg9cZna8u/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ee9"
+  },
+  "cardtype": "Attack",
+  "cardName": "物理界限 & 时间界限 - 时间空间压迫",
+  "title": "时间空间压迫",
+  "description": "目标玩家的物理界限受损1点，并在下回合内无法正常调整时间安排。",
+  "tags": [
+    "物理界限",
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CqqUNGGda8irK5Ua/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8eea"
+  },
+  "cardtype": "Attack",
+  "cardName": "性界限 & 认知界限 - 性思维干扰",
+  "title": "性思维干扰",
+  "description": "目标玩家的性界限受损1点，并在本回合内无法使用认知类反应卡。",
+  "tags": [
+    "性界限",
+    "认知界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CnrV8Dp_xOt0l78u/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8eeb"
+  },
+  "cardtype": "Attack",
+  "cardName": "性界限 & 情感界限 - 情感性侵犯",
+  "title": "情感性侵犯",
+  "description": "目标玩家的性界限和情感界限各受损1点。",
+  "tags": [
+    "性界限",
+    "情感界限"
+  ],
+  "properties": {
+    "attack": "高",
+    "cooldown": 3
+  },
+  "image": "https://s.coze.cn/t/ChiPjO1Sd6682CoC/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8eec"
+  },
+  "cardtype": "Attack",
+  "cardName": "性界限 & 物质界限 - 物品性侵犯",
+  "title": "物品性侵犯",
+  "description": "强制目标玩家弃掉一张物质类反应卡，并使其性界限受损1点。",
+  "tags": [
+    "性界限",
+    "物质界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cs0fCzoA-CsReXs0/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8eed"
+  },
+  "cardtype": "Attack",
+  "cardName": "性界限 & 时间界限 - 时间性干扰",
+  "title": "时间性干扰",
+  "description": "使目标玩家的性界限受损1点，并在下回合内无法正常调整时间安排。",
+  "tags": [
+    "性界限",
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CocGu2MLUmbH7Z00/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8eee"
+  },
+  "cardtype": "Attack",
+  "cardName": "认知界限 & 情感界限 - 情感认知冲击",
+  "title": "情感认知冲击",
+  "description": "目标玩家的认知界限受损1点，并增加其情感压力。",
+  "tags": [
+    "认知界限",
+    "情感界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Ctbyu13U5qLTm4oC/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8eef"
+  },
+  "cardtype": "Attack",
+  "cardName": "认知界限 & 物质界限 - 资源认知干扰",
+  "title": "资源认知干扰",
+  "description": "使目标玩家的认知界限受损1点，并强制弃掉一张物质类反应卡。",
+  "tags": [
+    "认知界限",
+    "物质界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/ChVdq1ANYg3Jnew8/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ef0"
+  },
+  "cardtype": "Attack",
+  "cardName": "认知界限 & 时间界限 - 时间认知压迫",
+  "title": "时间认知压迫",
+  "description": "目标玩家的认知界限受损1点，并在下回合内无法使用认知类反应卡。",
+  "tags": [
+    "认知界限",
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/ChmaIxGycC3PhPko/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ef1"
+  },
+  "cardtype": "Attack",
+  "cardName": "情感界限 & 物质界限 - 物质情感冲击",
+  "title": "物质情感冲击",
+  "description": "使目标玩家的情感界限受损1点，并强制弃掉一张物质类反应卡。",
+  "tags": [
+    "情感界限",
+    "物质界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CgM2ALmEV8BBjxAU/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ef2"
+  },
+  "cardtype": "Attack",
+  "cardName": "情感界限 & 时间界限 - 时间情感压迫",
+  "title": "时间情感压迫",
+  "description": "使目标玩家的情感界限受损1点，并在下回合内无法正常调整时间安排。",
+  "tags": [
+    "情感界限",
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/Cn4WqSgmj8y8oxAC/"
+},
+{
+  "_id": {
+    "$oid": "673472db2128857f6b3e8ef3"
+  },
+  "cardtype": "Attack",
+  "cardName": "物质界限 & 时间界限 - 时间物质干扰",
+  "title": "时间物质干扰",
+  "description": "目标玩家的物质界限受损1点，并在下回合内无法正常调整时间安排。",
+  "tags": [
+    "物质界限",
+    "时间界限"
+  ],
+  "properties": {
+    "attack": "中",
+    "cooldown": 2
+  },
+  "image": "https://s.coze.cn/t/CjJCX-yLT4FcWM8q/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8ef4"
+  },
+  "cardtype": "Event",
+  "cardName": "意外获得一位盟友的支持",
+  "title": "意外获得一位盟友的支持",
+  "description": "该玩家可以在下一个回合内忽略一次攻击或干扰效果。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CuG2-sm9AJY-tWsA/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8ef5"
+  },
+  "cardtype": "Event",
+  "cardName": "获得额外资源",
+  "title": "获得额外资源",
+  "description": "该玩家可以从自己的牌库中选择并获得一张额外的反应卡。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/ClZI8x5xO49Obk4K/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8ef6"
+  },
+  "cardtype": "Event",
+  "cardName": "恢复部分界限",
+  "title": "恢复部分界限",
+  "description": "该玩家选择一种界限类型，恢复2点界限值。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CqDjLpl8E6QvXmsy/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8ef7"
+  },
+  "cardtype": "Event",
+  "cardName": "意外的放松时间",
+  "title": "意外的放松时间",
+  "description": "所有玩家可以在接下来的两轮内增加2次额外的时间调整机会。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CgkqqX5t0n-fraQo/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8ef8"
+  },
+  "cardtype": "Event",
+  "cardName": "获得防御性工具",
+  "title": "获得防御性工具",
+  "description": "所有玩家可以从各自的牌库中选择一张防御类反应卡并在下一个回合使用。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/ClV5ZGQPslXE5h40/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8ef9"
+  },
+  "cardtype": "Event",
+  "cardName": "意外发现资源",
+  "title": "意外发现资源",
+  "description": "该玩家可以立即获得一张物质类反应卡。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CslHsQ0GA98iuFAs/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8efa"
+  },
+  "cardtype": "Event",
+  "cardName": "获得专家建议",
+  "title": "获得专家建议",
+  "description": "所有玩家在接下来的回合内对任何攻击卡的影响减少1点。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/Cm_r6eCshjj7GtU4/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8efb"
+  },
+  "cardtype": "Event",
+  "cardName": "额外的休息时间",
+  "title": "额外的休息时间",
+  "description": "该玩家可以在接下来的两轮内使用额外的时间调整机会。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CkBJgI-FH-zAabsa/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8efc"
+  },
+  "cardtype": "Event",
+  "cardName": "临时的团队支持",
+  "title": "临时的团队支持",
+  "description": "所有玩家可以恢复1点各自的任意界限值。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CuXnB68c2ljTLNs0/"
+},
+{
+  "_id": {
+    "$oid": "673473dc2128857f6b3e8efd"
+  },
+  "cardtype": "Event",
+  "cardName": "意外的良好沟通",
+  "title": "意外的良好沟通",
+  "description": "该玩家可以在接下来的两轮内免受一次干扰攻击。",
+  "tags": [
+    "正面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CjMY4Q_k2E-amiMk/"
+},
+{
+  "_id": {
+    "$oid": "673474062128857f6b3e8efe"
+  },
+  "cardtype": "Event",
+  "cardName": "突然的压力增加",
+  "title": "突然的压力增加",
+  "description": "所有玩家在接下来的回合内所有防御类反应卡效果降低2点。",
+  "tags": [
+    "负面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/Ck8c-IhE6CBh0qE0/"
+},
+{
+  "_id": {
+    "$oid": "673474062128857f6b3e8eff"
+  },
+  "cardtype": "Event",
+  "cardName": "资源意外短缺",
+  "title": "资源意外短缺",
+  "description": "该玩家必须弃掉一张物质类反应卡。",
+  "tags": [
+    "负面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CpK0ejF__aXKlxka/"
+},
+{
+  "_id": {
+    "$oid": "673474062128857f6b3e8f00"
+  },
+  "cardtype": "Event",
+  "cardName": "突然的界限冲击",
+  "title": "突然的界限冲击",
+  "description": "该玩家选择一种界限类型，受损2点。",
+  "tags": [
+    "负面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CqiAki1EA-uudFEW/"
+},
+{
+  "_id": {
+    "$oid": "673474062128857f6b3e8f01"
+  },
+  "cardtype": "Event",
+  "cardName": "重要的时间丧失",
+  "title": "重要的时间丧失",
+  "description": "所有玩家在接下来的两轮内不能进行时间调整。",
+  "tags": [
+    "负面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/Cmy1xQwbiROIJr8a/"
+},
+{
+  "_id": {
+    "$oid": "673474062128857f6b3e8f02"
+  },
+  "cardtype": "Event",
+  "cardName": "情感上的挫折",
+  "title": "情感上的挫折",
+  "description": "该玩家的情感界限受损2点。",
+  "tags": [
+    "负面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/ClBikCFo5l2w7XYe/"
+},
+{
+  "_id": {
+    "$oid": "673474062128857f6b3e8f03"
+  },
+  "cardtype": "Event",
+  "cardName": "突然的身体损伤",
+  "title": "突然的身体损伤",
+  "description": "该玩家的物理界限受损2点。",
+  "tags": [
+    "负面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CqcYz6Mqo_Ym6Xc8/"
+},
+{
+  "_id": {
+    "$oid": "673474062128857f6b3e8f04"
+  },
+  "cardtype": "Event",
+  "cardName": "认知混乱",
+  "title": "认知混乱",
+  "description": "所有玩家在接下来的回合内无法使用认知类反应卡。",
+  "tags": [
+    "负面事件"
+  ],
+  "properties": {},
+  "image": "https://s.coze.cn/t/CnMK9sTNMgFQSxUE/"
+}]

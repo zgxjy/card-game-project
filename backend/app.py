@@ -32,5 +32,33 @@ def get_cards():
         card["_id"] = str(card["_id"])
     return jsonify(cards=cards)
 
+
+# 删除卡片
+@app.route('/delete_card/<card_id>', methods=['DELETE'])
+def delete_card(card_id):
+    # 删除指定 ID 的卡片
+    result = mongo.db[Config.COLLECTIONS['CARDS']].delete_one({'_id': mongo.db.ObjectId(card_id)})
+    
+    if result.deleted_count == 1:
+        return jsonify(message="Card deleted successfully"), 200
+    else:
+        return jsonify(message="Card not found"), 404
+    
+# 更新卡片的部分信息
+@app.route('/update_card/<card_id>', methods=['PATCH'])
+def update_card(card_id):
+    update_data = request.json
+    # 查找并更新指定卡片的部分信息
+    result = mongo.db[Config.COLLECTIONS['CARDS']].update_one(
+        {'_id': mongo.db.ObjectId(card_id)},
+        {'$set': update_data}  # 只更新传入的数据字段
+    )
+
+    if result.matched_count == 1:
+        return jsonify(message="Card updated successfully"), 200
+    else:
+        return jsonify(message="Card not found"), 404
+    
+    
 if __name__ == '__main__':
     app.run(debug=True)

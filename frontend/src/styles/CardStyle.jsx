@@ -1,4 +1,4 @@
-// CardStyles.js
+// CardStyles.jsx
 export const CARD_THEMES = {
   Boundary: {
     background: "bg-[#c4432d]",
