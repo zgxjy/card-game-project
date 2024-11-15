@@ -13,7 +13,8 @@ const AllCardsStructure = ({ cards }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingCard, setEditingCard] = useState(null);
   const [newCardData, setNewCardData] = useState({ title: '', description: '', image: '', cardtype: '', project: '' });
-  
+  const [isAllSelected, setIsAllSelected] = useState(false);
+
   // 筛选状态
   const [filters, setFilters] = useState({
     project: '',
@@ -90,10 +91,26 @@ const AllCardsStructure = ({ cards }) => {
     });
   };
 
-  // 处理卡片点击
+  // 添加全选/取消全选处理函数
+  const handleSelectAll = () => {
+    if (isAllSelected) {
+      // 如果当前是全选状态，则取消所有选择
+      setSelectedCards({});
+      setIsAllSelected(false);
+    } else {
+      // 如果当前不是全选状态，则选择所有卡片
+      const newSelectedCards = {};
+      filteredCards.forEach((_, index) => {
+        newSelectedCards[index] = true;
+      });
+      setSelectedCards(newSelectedCards);
+      setIsAllSelected(true);
+    }
+  };
+
+  // 修改现有的 handleCardClick 函数，更新全选状态
   const handleCardClick = (index) => {
     if (isEditMode) {
-      // 编辑模式下只允许单选
       setSelectedCards({
         [index]: true
       });
@@ -101,13 +118,17 @@ const AllCardsStructure = ({ cards }) => {
       setEditingCard({ ...selectedCard });
       setIsEditModalOpen(true);
     } else if (isSelectionMode) {
-      // 批量选择模式保持不变
-      setSelectedCards(prevState => ({
-        ...prevState,
-        [index]: !prevState[index]
-      }));
+      setSelectedCards(prevState => {
+        const newState = {
+          ...prevState,
+          [index]: !prevState[index]
+        };
+        // 检查是否所有卡片都被选中
+        const allSelected = filteredCards.every((_, i) => newState[i]);
+        setIsAllSelected(allSelected);
+        return newState;
+      });
     } else {
-      // 翻转卡片模式保持不变
       setFlippedCards(prevState => ({
         ...prevState,
         [index]: !prevState[index]
@@ -115,14 +136,14 @@ const AllCardsStructure = ({ cards }) => {
     }
   };
 
-    // 进入编辑模式
-    const toggleEditMode = () => {
-      setIsEditMode(!isEditMode);
-      setIsSelectionMode(false); // 退出批量选择模式
-      setSelectedCards({}); // 清除所有选择
-    };
+  // 修改 toggleSelectionMode，重置全选状态
+  const toggleSelectionMode = () => {
+    setIsSelectionMode(!isSelectionMode);
+    setSelectedCards({});
+    setIsAllSelected(false);
+  };
   
-    const handleUpdateCard = async () => {
+  const handleUpdateCard = async () => {
       if (!editingCard) {
         alert('没有选中要修改的卡片');
         return;
@@ -159,11 +180,6 @@ const AllCardsStructure = ({ cards }) => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const toggleSelectionMode = () => {
-    setIsSelectionMode(!isSelectionMode);
-    setSelectedCards({});
   };
 
   const handleBatchDelete = async () => {
@@ -308,50 +324,45 @@ const AllCardsStructure = ({ cards }) => {
             </div>
           </div>
 
-           {/* 管理工具栏 */}
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex space-x-4">
-            <button
-              onClick={toggleSelectionMode}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                isSelectionMode ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              disabled={isEditMode}
-            >
-              {isSelectionMode ? '退出选择' : '选择卡片'}
-            </button>
-            {/* 新增修改卡片按钮 */}
-            <button
-              onClick={toggleEditMode}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                isEditMode ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              disabled={isSelectionMode}
-            >
-              {isEditMode ? '退出修改' : '修改卡片'}
-            </button>
-            {isSelectionMode && (
-              <>
-                <button
-                  onClick={handleBatchDelete}
-                  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-                >
-                  删除卡片
-                </button>
-                <button
-                  onClick={handleBatchImageDelete}
-                  className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
-                >
-                  删除图片
-                </button>
-                <button
+        {/* 修改管理工具栏，添加全选按钮 */}
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex space-x-4">
+          <button
+            onClick={toggleSelectionMode}
+            className={`px-4 py-2 rounded-lg transition-colors ${
+              isSelectionMode ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+            disabled={isEditMode}
+          >
+            {isSelectionMode ? '退出选择' : '选择卡片'}
+          </button>
+          {isSelectionMode && (
+            <>
+              <button
+                onClick={handleSelectAll}
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                {isAllSelected ? '取消全选' : '全选'}
+              </button>
+              <button
+                onClick={handleBatchDelete}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              >
+                删除卡片
+              </button>
+              <button
+                onClick={handleBatchImageDelete}
+                className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
+              >
+                删除图片
+              </button>
+              <button
                 onClick={handleBatchPrint}
                 className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
-                disabled={selectedCards.length === 0}
               >
                 打印卡片
-                </button>
-              </>
+              </button>
+            </>
             )}
             <button
               onClick={openAddModal}

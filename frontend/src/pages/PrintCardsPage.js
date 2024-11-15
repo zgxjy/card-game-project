@@ -1,73 +1,122 @@
-import React, { useState,useEffect } from 'react';
-const PrintCardsStruture = ({ cards }) => {
-  // A4 尺寸为 210mm x 297mm
-  // 假设每张卡片为 63mm x 88mm (标准扑克牌尺寸)
-  // 每页可以放 3 x 3 = 9 张卡片
+import React, { useState, useEffect } from 'react';
+import GameCard from '../components/GameCard';
 
-  if (!cards || cards.length === 0) {
-    return (
-      <div className="print-container flex justify-center items-center h-full">
-        <h2 className="text-xl font-semibold">暂无数据</h2>
-      </div>
-    );
-  }
+const PrintCardsPage = () => {
+  const [cards, setCards] = useState([]);
+  
+  // A4 dimensions in pixels (assuming 96 DPI)
+  // A4: 210mm × 297mm = 793px × 1122px
+  const A4_WIDTH = 793;
+  const A4_HEIGHT = 1122;
+  
+  // Card dimensions from your GameCard component (350px × 490px)
+  // Converting to mm for print: approximately 长8.8cm X宽6.3cm
+  const CARD_WIDTH = 350;
+  const CARD_HEIGHT = 490;
+  
+  // Calculate cards per page based on A4 size
+  // Adding margins and gaps between cards
+  const MARGIN = 30; // 30px margin
+  const GAP = 20; // 20px gap between cards
+  
+  const USABLE_WIDTH = A4_WIDTH - (2 * MARGIN);
+  const USABLE_HEIGHT = A4_HEIGHT - (2 * MARGIN);
+  
+  const CARDS_PER_ROW = Math.floor((USABLE_WIDTH + GAP) / (CARD_WIDTH + GAP));
+  const CARDS_PER_COLUMN = Math.floor((USABLE_HEIGHT + GAP) / (CARD_HEIGHT + GAP));
+  const CARDS_PER_PAGE = CARDS_PER_ROW * CARDS_PER_COLUMN;
+
+  useEffect(() => {
+    const loadCards = async () => {
+      try {
+        const cardsData = sessionStorage.getItem('printCards');
+        const parsedData = cardsData ? JSON.parse(cardsData) : [];
+        if (Array.isArray(parsedData)) {
+          setCards(parsedData);
+        } else {
+          setCards([]);
+        }
+      } catch (error) {
+        console.error('Error parsing cards data', error);
+        setCards([]);
+      }
+    };
+    
+    loadCards();
+  }, []);
 
   return (
     <div className="print-container">
-      {/* 打印预览区域 */}
-      <style>{`
-        @media print {
-          @page {
-            size: A4;
-            margin: 10mm;
-          }
-          
-          body {
-            margin: 0;
-            padding: 0;
+      <style>
+        {`
+          @media print {
+            @page {
+              size: A4;
+              margin: 0;
+            }
+            
+            body {
+              margin: 0;
+              padding: 0;
+            }
+
+            .no-print {
+              display: none !important;
+            }
+
+            .print-container {
+              width: 210mm;
+              margin: 0 auto;
+            }
+
+            .print-page {
+              width: 210mm;
+              height: 297mm;
+              page-break-after: always;
+              padding: ${MARGIN}px;
+              display: grid;
+              grid-template-columns: repeat(${CARDS_PER_ROW}, 1fr);
+              grid-template-rows: repeat(${CARDS_PER_COLUMN}, 1fr);
+              gap: ${GAP}px;
+            }
+
+            .print-page:last-child {
+              page-break-after: auto;
+            }
+
+            .card-wrapper {
+              width: ${CARD_WIDTH}px;
+              height: ${CARD_HEIGHT}px;
+            }
           }
 
-          .no-print {
-            display: none !important;
-          }
-
+          /* Preview styles */
           .print-container {
-            width: 210mm;
-            margin: 0 auto;
+            background: #f0f0f0;
+            padding: 20px;
           }
 
           .print-page {
-            page-break-after: always;
-            height: 297mm;
-            padding: 5mm;
-            box-sizing: border-box;
-          }
-
-          .print-grid {
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            width: ${A4_WIDTH}px;
+            height: ${A4_HEIGHT}px;
+            padding: ${MARGIN}px;
             display: grid;
-            grid-template-columns: repeat(3, 63mm);
-            grid-template-rows: repeat(3, 88mm);
-            gap: 5mm;
+            grid-template-columns: repeat(${CARDS_PER_ROW}, 1fr);
+            grid-template-rows: repeat(${CARDS_PER_COLUMN}, 1fr);
+            gap: ${GAP}px;
           }
 
-          .print-card {
-            border: 1px solid #ccc;
-            padding: 5mm;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+          .card-wrapper {
+            width: ${CARD_WIDTH}px;
+            height: ${CARD_HEIGHT}px;
           }
+        `}
+      </style>
 
-          .print-card img {
-            max-width: 53mm;
-            max-height: 40mm;
-            object-fit: contain;
-          }
-        }
-      `}</style>
-
-      {/* 打印控制按钮 */}
+      {/* Print controls */}
       <div className="no-print fixed top-4 right-4 z-50 space-y-2">
         <button
           onClick={() => window.print()}
@@ -83,70 +132,26 @@ const PrintCardsStruture = ({ cards }) => {
         </button>
       </div>
 
-      {/* 分页显示卡片 */}
-      {Array.from({ length: Math.ceil(cards.length / 9) }).map((_, pageIndex) => (
+      {/* Cards pages */}
+      {Array.from({ length: Math.ceil(cards.length / CARDS_PER_PAGE) }).map((_, pageIndex) => (
         <div key={pageIndex} className="print-page">
-          <div className="print-grid">
-            {cards.slice(pageIndex * 9, (pageIndex + 1) * 9).map((card, index) => (
-              <div key={card._id || index} className="print-card">
-                {card.image && (
-                  <div className="mb-2">
-                    <img src={card.image} alt={card.title} />
-                  </div>
-                )}
-                <h3 className="text-lg font-bold mb-1">{card.title}</h3>
-                {card.cardtype && (
-                  <div className="text-sm text-gray-600 mb-1">{card.cardtype}</div>
-                )}
-                {card.description && (
-                  <p className="text-sm">{card.description}</p>
-                )}
-                {card.project && (
-                  <div className="text-xs text-gray-500 mt-auto">
-                    {card.project}
-                  </div>
-                )}
+          {cards
+            .slice(pageIndex * CARDS_PER_PAGE, (pageIndex + 1) * CARDS_PER_PAGE)
+            .map((card, index) => (
+              <div key={card._id || index} className="card-wrapper">
+                <GameCard
+                  isFlipped={false}
+                  cardtype={card.cardtype}
+                  title={card.title}
+                  description={card.description}
+                  tags={card.tags}
+                  properties={card.properties}
+                  image={card.image}
+                />
               </div>
             ))}
-          </div>
         </div>
       ))}
-    </div>
-  );
-};
-
-
-const PrintCardsPage = () => {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    const loadCards = async () => {
-      // 获取 sessionStorage 中的数据并解析为数组
-      const cardsData = sessionStorage.getItem('printCards');
-      
-      // 确保数据有效并且是一个数组
-      try {
-        const parsedData = cardsData ? JSON.parse(cardsData) : [];
-        if (Array.isArray(parsedData)) {
-          setCards(parsedData);
-        } else {
-          console.warn('Invalid card data format');
-          setCards([]);  // 如果数据格式不对，设置为空数组
-        }
-      } catch (error) {
-        console.error('Error parsing cards data', error);
-        setCards([]);  // 解析失败时设置为空数组
-      }
-    };
-    
-    loadCards();
-  }, []);  // 空依赖数组确保只在组件加载时执行一次
-
-  console.log(cards); // 可用于调试，查看加载的数据
-
-  return (
-    <div className="print-container">
-      <PrintCardsStruture cards={cards} />
     </div>
   );
 };
