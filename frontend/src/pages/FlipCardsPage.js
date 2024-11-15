@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GameCard from '../components/GameCard';
+import { getCards } from '../services/api';
 
-const FlipCardsView = ({ cards }) => {
+const FlipCardsStructure = ({ cards }) => {
   // State: left side shows the cards in the stack, all initially flipped (back side up)
   const [leftCards, setLeftCards] = useState(cards.map(() => false)); // false means back side up
   const [rightCards, setRightCards] = useState([]);
@@ -87,4 +88,18 @@ const FlipCardsView = ({ cards }) => {
   );
 };
 
-export default FlipCardsView;
+function FlipCardsPage() {
+  const [cards, setCards] = useState([]);
+  
+  useEffect(() => {
+    const loadCards = async () => {
+      const cardsData = await getCards();
+      setCards(cardsData);
+    };
+    loadCards();
+  }, []);
+
+  return <FlipCardsStructure cards={cards} />;
+}
+
+export default FlipCardsPage;
