@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import GameCard from '../components/GameCard';
 import { deleteCards, updateCards, addCards,getCards,findCards } from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast'; // 假设你使用 react-hot-toast 做提示
 
 const AllCardsStructure = ({ cards }) => {
   const navigate = useNavigate();
@@ -135,6 +136,12 @@ const AllCardsStructure = ({ cards }) => {
       }));
     }
   };
+  // 进入编辑模式
+  const toggleEditMode = () => {
+    setIsEditMode(!isEditMode);
+    setIsSelectionMode(false); // 退出批量选择模式
+    setSelectedCards({}); // 清除所有选择
+  };
 
   // 修改 toggleSelectionMode，重置全选状态
   const toggleSelectionMode = () => {
@@ -145,7 +152,10 @@ const AllCardsStructure = ({ cards }) => {
   
   const handleUpdateCard = async () => {
       if (!editingCard) {
-        alert('没有选中要修改的卡片');
+        toast.error('没有选中要修改的卡片',{
+          'position':"top-center",
+          'duration':3000
+        });
         return;
       }
     
@@ -155,11 +165,20 @@ const AllCardsStructure = ({ cards }) => {
           const { _id, ...updateFields } = editingCard;
           
           await updateCards([_id], updateFields);
-          alert('修改成功！');
+          toast.success('修改成功！',{
+            'position':"top-center",
+            'duration':3000
+          });
           window.location.reload();
         } catch (error) {
-          console.error('修改失败:', error);
-          alert('修改失败，请重试');
+          console.error('修改失败:', error,{
+            'position':"top-center",
+            'duration':3000
+          });
+          toast.error('修改失败，请重试',{
+            'position':"top-center",
+            'duration':3000
+          });
         } finally {
           closeEditModal();
         }
@@ -188,18 +207,24 @@ const AllCardsStructure = ({ cards }) => {
       .map(([index]) => cards[parseInt(index)]._id);
 
     if (selectedIds.length === 0) {
-      alert('请先选择要删除的卡片');
+      toast.error('请先选择要删除的卡片',{
+        'position':"top-center",
+        'duration':3000
+      });
       return;
     }
 
     if (window.confirm(`确定要删除选中的 ${selectedIds.length} 张卡片吗？`)) {
       try {
         await deleteCards(selectedIds);
-        alert('删除成功！');
+        toast.success('删除成功！',{
+          'position':"top-center",
+          'duration':3000
+        });
         window.location.reload();
       } catch (error) {
         console.error('删除失败:', error);
-        alert('删除失败，请重试');
+        toast.error('删除失败，请重试');
       }
     }
   };
@@ -212,18 +237,27 @@ const AllCardsStructure = ({ cards }) => {
       }));
 
     if (selectedIds.length === 0) {
-      alert('请先选择要删除图片的卡片');
+      toast.error('请先选择要删除图片的卡片',{
+        'position':"top-center",
+        'duration':3000
+      });
       return;
     }
 
     if (window.confirm(`确定要删除选中的 ${selectedIds.length} 张卡片的图片吗？`)) {
       try {
         await updateCards(selectedIds.map(({ id }) => id), { image: null });
-        alert('图片删除成功！');
+        toast.success('图片删除成功！',{
+          'position':"top-center",
+          'duration':3000
+        });
         window.location.reload();
       } catch (error) {
         console.error('图片删除失败:', error);
-        alert('图片删除失败，请重试');
+        toast.error('图片删除失败，请重试',{
+          'position':"top-center",
+          'duration':3000
+        });
       }
     }
   };
@@ -237,17 +271,26 @@ const AllCardsStructure = ({ cards }) => {
 
   const handleAddCard = async () => {
     if (!newCardData || Object.keys(newCardData).length === 0) {
-      alert('卡片数据无效，请检查卡片信息');
+      toast.error('卡片数据无效，请检查卡片信息',{
+        'position':"top-center",
+        'duration':3000
+      });
       return;
     }
     if (window.confirm('确定要添加新的卡片吗？')) {
       try {
         await addCards([newCardData]);
-        alert('添加成功！');
+        toast.success('添加成功！',{
+          'position':"top-center",
+          'duration':3000
+        });
         window.location.reload();
       } catch (error) {
         console.error('添加卡片失败:', error);
-        alert('添加卡片失败，请重试');
+        toast.error('添加卡片失败，请重试',{
+          'position':"top-center",
+          'duration':3000
+        });
       } finally {
         closeAddModal();
       }
@@ -260,7 +303,10 @@ const AllCardsStructure = ({ cards }) => {
       .map(([index]) => cards[parseInt(index)]._id);
 
     if (selectedIds.length === 0) {
-      alert('请先选择要打印的卡片');
+      toast.error('请先选择要打印的卡片',{
+        'position':"top-center",
+        'duration':3000
+      });
       return;
     }
     if (window.confirm(`确定要打印选中的 ${selectedIds.length} 张卡片吗？`)) {
@@ -268,13 +314,19 @@ const AllCardsStructure = ({ cards }) => {
         console.log('Selected IDs:', selectedIds);
         const cardsdata = await findCards(selectedIds);
         sessionStorage.setItem('printCards', JSON.stringify(cardsdata));
-        alert('打印卡片信息成功获取');
+        toast.success('打印卡片信息成功获取',{
+          'position':"top-center",
+          'duration':3000
+        });
         console.log('Printing cards:', cardsdata);
         navigate('/print')
 
       } catch (error) {
         console.error('打印卡片信息获取失败:', error);
-        alert('打印卡片失败，请重试');
+        toast.error('打印卡片失败，请重试',{
+          'position':"top-center",
+          'duration':3000
+        });
       }
     }
   };
@@ -364,12 +416,26 @@ const AllCardsStructure = ({ cards }) => {
               </button>
             </>
             )}
-            <button
-              onClick={openAddModal}
-              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-            >
-              添加卡片
-            </button>
+            {!isSelectionMode && (
+              <>
+                <button
+                onClick={openAddModal}
+                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+                >
+                  添加卡片
+                </button>            
+                <button
+                  onClick={toggleEditMode}
+                  className={`px-4 py-2 rounded-lg transition-colors ${
+                    isEditMode ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                  disabled={isSelectionMode}
+                >
+                  {isEditMode ? '退出修改' : '修改卡片'}
+                </button>
+              </>
+            )}
+
           </div>
           <div className="text-gray-600">
             {(isSelectionMode || isEditMode) && (

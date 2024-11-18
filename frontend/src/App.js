@@ -1,10 +1,14 @@
 // src/App.js
 import React from 'react';
 import AppRoutes from './routes/Routes';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <AppRoutes />
+    <>
+      <Toaster/>
+      <AppRoutes />
+    </>
   );
 }
 
