@@ -62,7 +62,13 @@ export function PrintPreview({ cards }) {
           <div style={gridStyle}>
             {getCardsForPage(pageIndex).map((card, cardIndex) => (
               <div key={cardIndex} style={cardStyle} className="card-wrapper">
-                <GameCard {...card} style={cardStyle} />
+                <GameCard 
+                  {...card} 
+                  style={{
+                    width: `${mmToPx(cardSize.width)}px`,
+                    height: `${mmToPx(cardSize.height)}px`
+                  }}
+                />
               </div>
             ))}
           </div>

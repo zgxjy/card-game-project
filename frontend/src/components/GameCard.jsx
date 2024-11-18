@@ -1,4 +1,3 @@
-// GameCard.js
 import React from 'react';
 
 export const CARD_THEMES = {
@@ -29,10 +28,8 @@ export const CARD_THEMES = {
   }
 };
 
-export const styles = {
+const baseStyles = {
   // 核心卡牌框架
-  // 标准扑克牌尺寸约为 63mm × 88mm (2.5" × 3.5")
-  // 考虑到屏幕显示和打印需求，我们采用 350px × 490px 的尺寸
   cardFrame: `
     relative w-[350px] h-[490px] rounded-xl
     noise-texture
@@ -53,7 +50,7 @@ export const styles = {
   cardTitle: "font-bold text-xl text-white truncate max-w-[220px]",
   cardType: "px-3 py-1 text-sm bg-white/10 rounded-full text-white/90",
 
-  // 图片区域 - 增加高度以保持比例
+  // 图片区域
   cardImage: "h-48 bg-black/30 p-3",
   imageContainer: "w-full h-full bg-black/20 rounded-lg flex items-center justify-center overflow-hidden",
 
@@ -98,6 +95,18 @@ export const styles = {
     cooldown: "text-amber-400 text-lg",
     difficulty: "text-red-400 text-lg"
   }
+};
+
+// 创建一个函数来生成缩放后的样式
+const createScaledStyles = (scale = 1) => {
+  return {
+    ...baseStyles,
+    cardTitle: `${baseStyles.cardTitle} !text-[${Math.max(16 * scale, 8)}px]`,
+    cardType: `${baseStyles.cardType} !text-[${Math.max(14 * scale, 7)}px]`,
+    descriptionText: `${baseStyles.descriptionText} !text-[${Math.max(14 * scale, 7)}px]`,
+    tagText: `${baseStyles.tagText} !text-[${Math.max(12 * scale, 6)}px]`,
+    propertyText: `${baseStyles.propertyText} !text-[${Math.max(12 * scale, 6)}px]`
+  };
 };
 
 export const noiseTexture = `
@@ -145,8 +154,7 @@ export const noiseTexture = `
   }
 `;
 
- /* 优化后的卡片图标 */
- export const CardIcon = ({ type }) => {
+export const CardIcon = ({ type }) => {
   const icons = {
     Boundary: (
       <svg viewBox="0 0 24 24" className="w-6 h-6 text-white">
@@ -180,10 +188,10 @@ export const noiseTexture = `
 };
 
 export const ImagePlaceholder = () => (
-  <div className={styles.imagePlaceholder}>
+  <div className={baseStyles.imagePlaceholder}>
     <svg 
       viewBox="0 0 100 100" 
-      className={styles.placeholderIcon}
+      className={baseStyles.placeholderIcon}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -194,9 +202,9 @@ export const ImagePlaceholder = () => (
   </div>
 );
 
-export const CardFrontImage = ({ image }) => (
-  <div className={styles.cardImage}>
-    <div className={styles.imageContainer}> 
+const CardFrontImage = ({ image }) => (
+  <div className={baseStyles.cardImage}>
+    <div className={baseStyles.imageContainer}> 
       {image && image.trim() ? (
         <img src={image} alt="" className="w-full h-full object-cover rounded" /> 
       ) : (
@@ -208,7 +216,7 @@ export const CardFrontImage = ({ image }) => (
 
 const CardFrame = ({ children, type }) => {
   return (
-    <div className={`${styles.cardFrame} ${CARD_THEMES[type].background}`}>
+    <div className={`${baseStyles.cardFrame} ${CARD_THEMES[type].background}`}>
       <div className="relative z-10 h-full">
         {children}
       </div>
@@ -217,7 +225,7 @@ const CardFrame = ({ children, type }) => {
   );
 };
 
-const CardHeader = ({ title, type }) => (
+const CardHeader = ({ title, type, styles }) => (
   <div className={styles.cardHeader}>
     <div className="flex items-center gap-2">
       <div className={styles.cardIcon}>
@@ -229,7 +237,7 @@ const CardHeader = ({ title, type }) => (
   </div>
 );
 
-const CardDescription = ({ description, tags }) => (
+const CardDescription = ({ description, tags, styles }) => (
   <div className={styles.cardDescription}>
     <p className={styles.descriptionText}>{description}</p>
     <div className={styles.tagContainer}>
@@ -242,7 +250,7 @@ const CardDescription = ({ description, tags }) => (
   </div>
 );
 
-const CardProperties = ({ properties }) => (
+const CardProperties = ({ properties, styles }) => (
   <div className={styles.properties}>
     {properties.attack && (
       <div className={styles.propertyItem}>
@@ -271,14 +279,14 @@ const CardProperties = ({ properties }) => (
   </div>
 );
 
-const CardFront = ({ cardtype, title, description, tags = [], properties = {}, image }) => {
+const CardFront = ({ cardtype, title, description, tags = [], properties = {}, image, styles }) => {
   return (
     <CardFrame type={cardtype}>
       <div className="h-full flex flex-col">
-        <CardHeader title={title} type={cardtype} />
+        <CardHeader title={title} type={cardtype} styles={styles} />
         <CardFrontImage image={image} />
-        <CardProperties properties={properties} />
-        <CardDescription description={description} tags={tags} />
+        <CardProperties properties={properties} styles={styles} />
+        <CardDescription description={description} tags={tags} styles={styles} />
       </div>
     </CardFrame>
   );
@@ -290,13 +298,13 @@ const CardBack = ({ backimage, cardtype }) => {
 
   return (
     <div
-      className={`${styles.cardBack} ${backgroundImage ? 'bg-cover bg-center' : ''}`}
+      className={`${baseStyles.cardBack} ${backgroundImage ? 'bg-cover bg-center' : ''}`}
       style={{ backgroundImage }}
     >
       {!backgroundImage && (
-        <div className={`${styles.cardBackContent.wrapper} ${cardtype ? cardBackgroundClass : 'bg-black/10'}`}>
-          <div className={styles.cardBackContent.innerCircle}>
-            <div className={styles.cardBackContent.innerDot}></div>
+        <div className={`${baseStyles.cardBackContent.wrapper} ${cardtype ? cardBackgroundClass : 'bg-black/10'}`}>
+          <div className={baseStyles.cardBackContent.innerCircle}>
+            <div className={baseStyles.cardBackContent.innerDot}></div>
           </div>
         </div>
       )}
@@ -304,13 +312,50 @@ const CardBack = ({ backimage, cardtype }) => {
   );
 };
 
-const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, properties, image}) => {
+const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, properties, image, style }) => {
   const cardFrontProps = { cardtype, title, description, tags, properties, image };
-  const cardBackProps = { cardtype, backimage:'https://th.bing.com/th/id/R.c9c6efd9ddb4fcfbb92a83d724f0aa97?rik=zyl1%2f2Jt2YV6VQ&pid=ImgRaw&r=0' };
+  const cardBackProps = { cardtype, backimage };
+
+  // 计算缩放比例
+  const scale = style ? Math.min(
+    parseFloat(style.width) / 350,
+    parseFloat(style.height) / 490
+  ) : 1;
+
+  // 使用缩放比例创建样式
+  const scaledStyles = createScaledStyles(scale);
+
+  // 容器样式
+  const containerStyle = {
+    width: style?.width || '350px',
+    height: style?.height || '490px',
+    transform: `${isFlipped ? 'rotateY(180deg)' : 'rotateY(0)'}`,
+    transition: 'transform 0.5s',
+    transformStyle: 'preserve-3d',
+    position: 'relative',
+  };
+
+  // 内容样式
+  const contentStyle = {
+    width: '350px',
+    height: '490px',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: `translate(-50%, -50%) scale(${scale})`,
+    transformOrigin: 'center center',
+    backfaceVisibility: 'hidden',
+  };
 
   return (
-    <div className={`${styles.gameCard.wrapper} ${isFlipped ? styles.gameCard.flipped : styles.gameCard.notFlipped}`}>
-      {isFlipped ? <CardBack {...cardBackProps} /> : <CardFront {...cardFrontProps} />}
+    <div style={containerStyle} className="perspective-1000">
+      <div style={contentStyle}>
+        {isFlipped ? (
+          <CardBack {...cardBackProps} />
+        ) : (
+          <CardFront {...cardFrontProps} styles={scaledStyles} />
+        )}
+      </div>
     </div>
   );
 };

@@ -5,8 +5,6 @@ import html2canvas from 'html2canvas';
 import { createRoot } from 'react-dom/client';
 import GameCard from './GameCard';
 
-
-
 class PDFGenerator {
   constructor(config, cards) {
     this.config = config;
@@ -16,33 +14,38 @@ class PDFGenerator {
       format: [config.paperSize.width, config.paperSize.height],
       orientation: 'portrait'
     });
-    this.containerRef = null;
-    this.rootRef = null;
+    this.container = null;
+    this.root = null;
   }
 
-  shouldShowBack(pageIndex, cardIndex) {
-    switch (this.config.displayMode) {
-      case 'back_only':
-        return true;
-      case 'alternating':
-        return pageIndex % 2 === 1;
-      case 'merged':
-        return cardIndex % 2 === 1;
-      default:
-        return false;
+  // 创建渲染容器
+  initContainer() {
+    if (!this.container) {
+      // 创建容器元素
+      this.container = document.createElement('div');
+      this.container.style.position = 'absolute';
+      this.container.style.left = '-9999px';
+      this.container.style.top = '0';
+      this.container.style.width = `${this.mmToPx(this.config.cardSize.width)}px`;
+      this.container.style.height = `${this.mmToPx(this.config.cardSize.height)}px`;
+      document.body.appendChild(this.container);
+      
+      // 创建React根节点
+      this.root = createRoot(this.container);
     }
+    return this.container;
   }
 
-  async generate(onProgress) {
-    let pageIndex = 0;
-    let hasMorePages = true;
-
-    while (hasMorePages) {
-      hasMorePages = await this.generatePage(pageIndex, onProgress);
-      pageIndex++;
+  // 清理渲染容器
+  cleanup() {
+    if (this.root) {
+      this.root.unmount();
     }
-
-    return this.pdf;
+    if (this.container && this.container.parentNode) {
+      this.container.parentNode.removeChild(this.container);
+    }
+    this.container = null;
+    this.root = null;
   }
 
   // 统一的转换函数
@@ -54,31 +57,21 @@ class PDFGenerator {
     return px / 3.7795275591;
   }
 
-  initContainer() {
-    if (!this.containerRef) {
-      const container = document.createElement('div');
-      container.style.position = 'absolute';
-      container.style.left = '-9999px';
-      container.style.width = `${this.mmToPx(this.config.cardSize.width)}px`;
-      container.style.height = `${this.mmToPx(this.config.cardSize.height)}px`;
-      document.body.appendChild(container);
-      this.containerRef = container;
-      this.rootRef = createRoot(container);
-    }
-    return this.containerRef;
-  }
-
   async generateCardImage(card, isFlipped) {
+    // 确保容器已初始化
     const container = this.initContainer();
+    const containerWidth = this.mmToPx(this.config.cardSize.width);
+    const containerHeight = this.mmToPx(this.config.cardSize.height);
     
     return new Promise((resolve, reject) => {
-      this.rootRef.render(
+      // 使用已创建的React根节点渲染
+      this.root.render(
         <GameCard
           {...card}
           isFlipped={isFlipped}
           style={{
-            width: `${this.mmToPx(this.config.cardSize.width)}px`,
-            height: `${this.mmToPx(this.config.cardSize.height)}px`
+            width: `${containerWidth}px`,
+            height: `${containerHeight}px`
           }}
         />
       );
@@ -103,8 +96,8 @@ class PDFGenerator {
                   useCORS: true,
                   allowTaint: true,
                   backgroundColor: null,
-                  width: this.mmToPx(this.config.cardSize.width),
-                  height: this.mmToPx(this.config.cardSize.height)
+                  width: containerWidth,
+                  height: containerHeight
                 });
                 resolve(canvas.toDataURL('image/jpeg', 1.0));
               } catch (error) {
@@ -116,6 +109,35 @@ class PDFGenerator {
 
       checkRender();
     });
+  }
+
+  async generate(onProgress) {
+    try {
+      let pageIndex = 0;
+      let hasMorePages = true;
+
+      while (hasMorePages) {
+        hasMorePages = await this.generatePage(pageIndex, onProgress);
+        pageIndex++;
+      }
+
+      return this.pdf;
+    } finally {
+      // 确保在生成完成后清理容器
+      this.cleanup();
+    }
+  }
+  shouldShowBack(pageIndex, cardIndex) {
+    switch (this.config.displayMode) {
+      case 'back_only':
+        return true;
+      case 'alternating':
+        return pageIndex % 2 === 1;
+      case 'merged':
+        return cardIndex % 2 === 1;
+      default:
+        return false;
+    }
   }
 
   async generatePage(pageIndex, onProgress) {

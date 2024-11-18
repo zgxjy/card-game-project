@@ -27,7 +27,7 @@ export function PrintConfigProvider({ children }) {
   const [cardSize, setCardSize] = useState(CARD_SIZES.POKER);
   const [customCardSize, setCustomCardSize] = useState({ width: 0, height: 0 });
   const [displayMode, setDisplayMode] = useState(DISPLAY_MODES.FRONT_ONLY);
-  const [margins, setMargins] = useState({ top: 10, right: 10, bottom: 10, left: 10 });
+  const [margins, setMargins] = useState({ top: 5, right: 5, bottom: 5, left: 5 });
   const [spacing, setSpacing] = useState({ horizontal: 5, vertical: 5 });
 
   const calculateLayout = useCallback(() => {
