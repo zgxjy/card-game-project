@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 
 export const CARD_THEMES = {
   Boundary: {
@@ -214,17 +214,6 @@ const CardFrontImage = ({ image }) => (
   </div>
 );
 
-const CardFrame = ({ children, type }) => {
-  return (
-    <div className={`${baseStyles.cardFrame} ${CARD_THEMES[type].background}`}>
-      <div className="relative z-10 h-full">
-        {children}
-      </div>
-      <style jsx>{noiseTexture}</style>
-    </div>
-  );
-};
-
 const CardHeader = ({ title, type, styles }) => (
   <div className={styles.cardHeader}>
     <div className="flex items-center gap-2">
@@ -279,32 +268,37 @@ const CardProperties = ({ properties, styles }) => (
   </div>
 );
 
-const CardFront = ({ cardtype, title, description, tags = [], properties = {}, image, styles }) => {
+// CardFront组件 - 接收scale参数
+const CardFront = ({ cardtype, title, description, tags = [], properties = {}, image, scale = 1 }) => {
+  const scaledStyles = createScaledStyles(scale);
+  
   return (
-    <CardFrame type={cardtype}>
-      <div className="h-full flex flex-col">
-        <CardHeader title={title} type={cardtype} styles={styles} />
+    <div className={`${baseStyles.cardFrame} ${CARD_THEMES[cardtype].background}`}>
+      <div className="relative z-10 h-full">
+        <CardHeader title={title} type={cardtype} styles={scaledStyles} />
         <CardFrontImage image={image} />
-        <CardProperties properties={properties} styles={styles} />
-        <CardDescription description={description} tags={tags} styles={styles} />
+        <CardProperties properties={properties} styles={scaledStyles} />
+        <CardDescription description={description} tags={tags} styles={scaledStyles} />
       </div>
-    </CardFrame>
+      <style jsx>{noiseTexture}</style>
+    </div>
   );
 };
 
+// 背面渲染函数
 const CardBack = ({ backimage, cardtype }) => {
   const backgroundImage = backimage ? `url(${backimage})` : null;
   const cardBackgroundClass = cardtype ? CARD_THEMES[cardtype].background : 'bg-black/10';
-
+  
   return (
     <div
-      className={`${baseStyles.cardBack} ${backgroundImage ? 'bg-cover bg-center' : ''}`}
+      className={`relative w-[350px] h-[490px] rounded-xl shadow-lg ${backgroundImage ? 'bg-cover bg-center' : ''} ${cardBackgroundClass}`}
       style={{ backgroundImage }}
     >
       {!backgroundImage && (
-        <div className={`${baseStyles.cardBackContent.wrapper} ${cardtype ? cardBackgroundClass : 'bg-black/10'}`}>
-          <div className={baseStyles.cardBackContent.innerCircle}>
-            <div className={baseStyles.cardBackContent.innerDot}></div>
+        <div className="flex items-center justify-center w-full h-full">
+          <div className="w-32 h-32 bg-black/70 rounded-full flex items-center justify-center">
+            <div className="w-20 h-20 bg-white rounded-full"></div>
           </div>
         </div>
       )}
@@ -313,8 +307,14 @@ const CardBack = ({ backimage, cardtype }) => {
 };
 
 const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, properties, image, style }) => {
+  const [showBack, setShowBack] = useState(isFlipped);
   const cardFrontProps = { cardtype, title, description, tags, properties, image };
-  const cardBackProps = { cardtype, backimage };
+  const cardBackProps = { backimage, cardtype };
+
+  // 监听isFlipped变化
+  useEffect(() => {
+    setShowBack(isFlipped);
+  }, [isFlipped]);
 
   // 计算缩放比例
   const scale = style ? Math.min(
@@ -322,21 +322,18 @@ const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, pr
     parseFloat(style.height) / 490
   ) : 1;
 
-  // 使用缩放比例创建样式
-  const scaledStyles = createScaledStyles(scale);
-
-  // 容器样式
+  // 容器样式 - 保持原始尺寸用于定位
   const containerStyle = {
     width: style?.width || '350px',
     height: style?.height || '490px',
-    transform: `${isFlipped ? 'rotateY(180deg)' : 'rotateY(0)'}`,
+    transform: `${showBack ? 'rotateY(180deg)' : 'rotateY(0)'}`,
     transition: 'transform 0.5s',
     transformStyle: 'preserve-3d',
     position: 'relative',
   };
 
-  // 内容样式
-  const contentStyle = {
+  // 内容基础样式 - 应用于正面和背面
+  const baseContentStyle = {
     width: '350px',
     height: '490px',
     position: 'absolute',
@@ -347,14 +344,21 @@ const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, pr
     backfaceVisibility: 'hidden',
   };
 
+  // 背面特定样式
+  const backContentStyle = {
+    ...baseContentStyle,
+    transform: `translate(-50%, -50%) scale(${scale}) rotateY(180deg)`, // 注意这里添加了rotateY(180deg)
+  };
+
   return (
     <div style={containerStyle} className="perspective-1000">
-      <div style={contentStyle}>
-        {isFlipped ? (
-          <CardBack {...cardBackProps} />
-        ) : (
-          <CardFront {...cardFrontProps} styles={scaledStyles} />
-        )}
+      {/* 正面 */}
+      <div style={baseContentStyle} className={showBack ? 'invisible' : 'visible'}>
+        <CardFront {...cardFrontProps} scale={scale} />
+      </div>   
+      {/* 背面 */}
+      <div style={backContentStyle} className={showBack ? 'visible' : 'invisible'}>
+        <CardBack {...cardBackProps} />
       </div>
     </div>
   );

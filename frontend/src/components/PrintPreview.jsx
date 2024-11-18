@@ -64,6 +64,7 @@ export function PrintPreview({ cards }) {
               <div key={cardIndex} style={cardStyle} className="card-wrapper">
                 <GameCard 
                   {...card} 
+                  isFlipped={shouldShowBack(pageIndex, cardIndex)}
                   style={{
                     width: `${mmToPx(cardSize.width)}px`,
                     height: `${mmToPx(cardSize.height)}px`

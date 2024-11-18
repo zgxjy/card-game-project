@@ -165,7 +165,7 @@ class PDFGenerator {
         
         this.pdf.addImage(
           cardImage,
-          'JPEG',
+          'TIFF', 
           x,
           y,
           this.config.cardSize.width,

@@ -1,4 +1,4 @@
-// PrintConfigProvider.js
+// PrintConfig.jsx
 import React, { createContext, useContext, useState, useCallback } from 'react';
 
 const PrintConfigContext = createContext();
@@ -10,9 +10,15 @@ export const PAPER_SIZES = {
 };
 
 export const CARD_SIZES = {
-  POKER: { width: 63, height: 88, name: 'Poker' },
-  TAROT: { width: 70, height: 120, name: 'Tarot' },
-  CUSTOM: { width: 0, height: 0, name: 'Custom' }
+  POKER: { width: 63, height: 88, name: '扑克牌' },
+  TAROT: { width: 70, height: 120, name: '塔罗牌' },
+  MAGIC_THE_GATHERING: { width: 63, height: 88, name: '万智牌' },
+  YU_GI_OH: { width: 59, height: 86, name: '游戏王' },
+  THREE_KINGDOMS_KILL: { width: 62, height: 87, name: '三国杀' },
+  HEARTHSTONE: { width: 65, height: 90, name: '炉石传说' },
+  CATAN_ISLAND: { width: 75, height: 110, name: '卡坦岛' },
+  TICKETS_TO_RIDE: { width: 68, height: 92, name: '车票之旅' },
+  CUSTOM: { width: 63, height: 88, name: '自定义' } // 给自定义一个默认值
 };
 
 export const DISPLAY_MODES = {
@@ -23,50 +29,73 @@ export const DISPLAY_MODES = {
 };
 
 export function PrintConfigProvider({ children }) {
-  const [paperSize, setPaperSize] = useState(PAPER_SIZES.A4);
-  const [cardSize, setCardSize] = useState(CARD_SIZES.POKER);
-  const [customCardSize, setCustomCardSize] = useState({ width: 0, height: 0 });
-  const [displayMode, setDisplayMode] = useState(DISPLAY_MODES.FRONT_ONLY);
-  const [margins, setMargins] = useState({ top: 5, right: 5, bottom: 5, left: 5 });
-  const [spacing, setSpacing] = useState({ horizontal: 5, vertical: 5 });
+  // 当前生效的配置
+  const [activeConfig, setActiveConfig] = useState({
+    paperSize: PAPER_SIZES.A4,
+    cardSize: CARD_SIZES.POKER,
+    customCardSize: { width: 63, height: 88 },
+    displayMode: DISPLAY_MODES.FRONT_ONLY,
+    margins: { top: 5, right: 5, bottom: 5, left: 5 },
+    spacing: { horizontal: 5, vertical: 5 }
+  });
 
+  // 编辑中的配置
+  const [editingConfig, setEditingConfig] = useState({
+    paperSize: PAPER_SIZES.A4,
+    cardSize: CARD_SIZES.POKER,
+    customCardSize: { width: 63, height: 88 },
+    displayMode: DISPLAY_MODES.FRONT_ONLY,
+    margins: { top: 5, right: 5, bottom: 5, left: 5 },
+    spacing: { horizontal: 5, vertical: 5 }
+  });
+
+  // 计算布局（使用当前生效的配置）
   const calculateLayout = useCallback(() => {
-    const currentCardSize = cardSize === CARD_SIZES.CUSTOM ? customCardSize : cardSize;
-    const printableWidth = paperSize.width - margins.left - margins.right;
-    const printableHeight = paperSize.height - margins.top - margins.bottom;
+    const currentCardSize = activeConfig.cardSize === CARD_SIZES.CUSTOM 
+      ? activeConfig.customCardSize 
+      : activeConfig.cardSize;
+    
+    const printableWidth = activeConfig.paperSize.width - activeConfig.margins.left - activeConfig.margins.right;
+    const printableHeight = activeConfig.paperSize.height - activeConfig.margins.top - activeConfig.margins.bottom;
   
-    const cardsPerRow = Math.floor(printableWidth / (currentCardSize.width + spacing.horizontal));
-    const cardsPerColumn = Math.floor(printableHeight / (currentCardSize.height + spacing.vertical));
+    const cardsPerRow = Math.floor(printableWidth / (currentCardSize.width + activeConfig.spacing.horizontal));
+    const cardsPerColumn = Math.floor(printableHeight / (currentCardSize.height + activeConfig.spacing.vertical));
   
     return {
       cardsPerPage: cardsPerRow * cardsPerColumn,
       cardsPerRow,
       cardsPerColumn,
-      pageWidth: paperSize.width,
-      pageHeight: paperSize.height,
+      pageWidth: activeConfig.paperSize.width,
+      pageHeight: activeConfig.paperSize.height,
       cardWidth: currentCardSize.width,
       cardHeight: currentCardSize.height,
-      spacing: {  // 添加spacing属性
-        horizontal: spacing.horizontal,
-        vertical: spacing.vertical
-      }
+      spacing: activeConfig.spacing
     };
-  }, [paperSize, cardSize, customCardSize, margins, spacing]);
+  }, [activeConfig]);
+
+  // 提交配置变更
+  const applyConfig = useCallback(() => {
+    setActiveConfig({...editingConfig});
+  }, [editingConfig]);
 
   const value = {
-    paperSize,
-    setPaperSize,
-    cardSize,
-    setCardSize,
-    customCardSize,
-    setCustomCardSize,
-    displayMode,
-    setDisplayMode,
-    margins,
-    setMargins,
-    spacing,
-    setSpacing,
-    calculateLayout
+    // 当前生效的配置
+    ...activeConfig,
+    // 编辑中的配置
+    editingConfig,
+    // 更新编辑中的配置的方法
+    setPaperSize: (size) => setEditingConfig(prev => ({ ...prev, paperSize: size })),
+    setCardSize: (size) => setEditingConfig(prev => ({ ...prev, cardSize: size })),
+    setCustomCardSize: (size) => setEditingConfig(prev => ({ ...prev, customCardSize: size })),
+    setDisplayMode: (mode) => setEditingConfig(prev => ({ ...prev, displayMode: mode })),
+    setMargins: (margins) => setEditingConfig(prev => ({ ...prev, margins })),
+    setSpacing: (spacing) => setEditingConfig(prev => ({ ...prev, spacing })),
+    // 布局计算
+    calculateLayout,
+    // 提交配置
+    applyConfig,
+    // 判断是否有未保存的更改
+    hasChanges: JSON.stringify(activeConfig) !== JSON.stringify(editingConfig)
   };
 
   return (
@@ -84,22 +113,26 @@ export function usePrintConfig() {
   return context;
 }
 
-// PrintConfigurator.js
 export function PrintConfigurator() {
   const {
-    paperSize,
+    editingConfig,
     setPaperSize,
-    cardSize,
     setCardSize,
-    customCardSize,
     setCustomCardSize,
-    displayMode,
     setDisplayMode,
-    margins,
     setMargins,
-    spacing,
-    setSpacing
+    setSpacing,
+    applyConfig,
+    hasChanges
   } = usePrintConfig();
+
+  const handleCustomSizeChange = (dimension, value) => {
+    const numValue = parseFloat(value) || 0;
+    setCustomCardSize({
+      ...editingConfig.customCardSize,
+      [dimension]: numValue
+    });
+  };
 
   return (
     <div className="print-configurator p-4 bg-white rounded-lg shadow">
@@ -107,7 +140,7 @@ export function PrintConfigurator() {
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">纸张尺寸</label>
         <select
-          value={paperSize.name}
+          value={Object.keys(PAPER_SIZES).find(key => PAPER_SIZES[key] === editingConfig.paperSize)}
           onChange={(e) => setPaperSize(PAPER_SIZES[e.target.value])}
           className="w-full p-2 border rounded"
         >
@@ -123,7 +156,7 @@ export function PrintConfigurator() {
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">卡牌尺寸</label>
         <select
-          value={cardSize.name}
+          value={Object.keys(CARD_SIZES).find(key => CARD_SIZES[key] === editingConfig.cardSize)}
           onChange={(e) => setCardSize(CARD_SIZES[e.target.value])}
           className="w-full p-2 border rounded mb-2"
         >
@@ -134,14 +167,15 @@ export function PrintConfigurator() {
           ))}
         </select>
 
-        {cardSize === CARD_SIZES.CUSTOM && (
+        {editingConfig.cardSize === CARD_SIZES.CUSTOM && (
           <div className="grid grid-cols-2 gap-2">
             <div>
               <label className="block text-xs mb-1">宽度 (mm)</label>
               <input
                 type="number"
-                value={customCardSize.width}
-                onChange={(e) => setCustomCardSize({ ...customCardSize, width: Number(e.target.value) })}
+                value={editingConfig.customCardSize.width}
+                onChange={(e) => handleCustomSizeChange('width', e.target.value)}
+                min="1"
                 className="w-full p-2 border rounded"
               />
             </div>
@@ -149,8 +183,9 @@ export function PrintConfigurator() {
               <label className="block text-xs mb-1">高度 (mm)</label>
               <input
                 type="number"
-                value={customCardSize.height}
-                onChange={(e) => setCustomCardSize({ ...customCardSize, height: Number(e.target.value) })}
+                value={editingConfig.customCardSize.height}
+                onChange={(e) => handleCustomSizeChange('height', e.target.value)}
+                min="1"
                 className="w-full p-2 border rounded"
               />
             </div>
@@ -162,7 +197,7 @@ export function PrintConfigurator() {
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">展示模式</label>
         <select
-          value={displayMode}
+          value={editingConfig.displayMode}
           onChange={(e) => setDisplayMode(e.target.value)}
           className="w-full p-2 border rounded"
         >
@@ -183,11 +218,11 @@ export function PrintConfigurator() {
               type="range"
               min="5"
               max="30"
-              value={margins.top}
-              onChange={(e) => setMargins({ ...margins, top: Number(e.target.value) })}
+              value={editingConfig.margins.top}
+              onChange={(e) => setMargins({ ...editingConfig.margins, top: Number(e.target.value) })}
               className="w-full"
             />
-            <span className="text-xs">{margins.top}mm</span>
+            <span className="text-xs">{editingConfig.margins.top}mm</span>
           </div>
           <div>
             <label className="block text-xs mb-1">卡牌间距 (mm)</label>
@@ -195,13 +230,31 @@ export function PrintConfigurator() {
               type="range"
               min="2"
               max="20"
-              value={spacing.horizontal}
-              onChange={(e) => setSpacing({ horizontal: Number(e.target.value), vertical: Number(e.target.value) })}
+              value={editingConfig.spacing.horizontal}
+              onChange={(e) => setSpacing({ 
+                horizontal: Number(e.target.value), 
+                vertical: Number(e.target.value) 
+              })}
               className="w-full"
             />
-            <span className="text-xs">{spacing.horizontal}mm</span>
+            <span className="text-xs">{editingConfig.spacing.horizontal}mm</span>
           </div>
         </div>
+      </div>
+
+      {/* Apply Button */}
+      <div className="mt-6">
+        <button
+          onClick={applyConfig}
+          disabled={!hasChanges}
+          className={`w-full py-2 px-4 rounded-lg text-white font-medium transition-colors ${
+            hasChanges 
+              ? 'bg-blue-500 hover:bg-blue-600' 
+              : 'bg-gray-400 cursor-not-allowed'
+          }`}
+        >
+          {hasChanges ? '配置已更改' : '配置未更改'}
+        </button>
       </div>
     </div>
   );
