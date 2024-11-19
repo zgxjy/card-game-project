@@ -376,7 +376,7 @@ const AllCardsStructure = ({ cards }) => {
             </div>
           </div>
 
-        {/* 修改管理工具栏，添加全选按钮 */}
+      {/* 修改管理工具栏，添加全选按钮 */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-4">
           <button
@@ -474,7 +474,7 @@ const AllCardsStructure = ({ cards }) => {
                 ({categorizedCards[category].length} 张)
               </span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
               {categorizedCards[category].map((card, index) => {
                 const globalIndex = filteredCards.findIndex(c => c._id === card._id);
                 return (
