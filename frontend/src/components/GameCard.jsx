@@ -203,7 +203,7 @@ export const ImagePlaceholder = () => (
 );
 
 const CardFrontImage = ({ image }) => (
-  <div className={baseStyles.cardImage}>
+  <div className={baseStyles.cardImage} data-type='CardFrontImage'>
     <div className={baseStyles.imageContainer}> 
       {image && image.trim() ? (
         <img src={image} alt="" className="w-full h-full object-cover rounded" /> 
@@ -215,7 +215,7 @@ const CardFrontImage = ({ image }) => (
 );
 
 const CardHeader = ({ title, type, styles }) => (
-  <div className={styles.cardHeader}>
+  <div className={styles.cardHeader} data-type='CardHeader'>
     <div className="flex items-center gap-2">
       <div className={styles.cardIcon}>
         <CardIcon type={type} />
@@ -226,21 +226,35 @@ const CardHeader = ({ title, type, styles }) => (
   </div>
 );
 
-const CardDescription = ({ description, tags, styles }) => (
-  <div className={styles.cardDescription}>
-    <p className={styles.descriptionText}>{description}</p>
-    <div className={styles.tagContainer}>
-      {tags.map((tag, index) => (
-        <div key={index} className={styles.tag}>
-          <span className={styles.tagText}>{tag}</span>
-        </div>
-      ))}
+const CardDescription = ({ description, tags, styles }) => {
+  return (
+    <div 
+      className={`${styles.cardDescription} flex flex-col justify-between`} 
+      data-type='CardDescription'
+    >
+      <p 
+        className={`${styles.descriptionText} flex-grow overflow-hidden`}
+        style={{
+          display: '-webkit-box',
+          WebkitLineClamp: '3',
+          WebkitBoxOrient: 'vertical'
+        }}
+      >
+        {description}
+      </p>
+      <div className={styles.tagContainer}>
+        {tags.map((tag, index) => (
+          <div key={index} className={styles.tag}>
+            <span className={styles.tagText}>{tag}</span>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const CardProperties = ({ properties, styles }) => (
-  <div className={styles.properties}>
+  <div className={styles.properties} data-type='CardProperties'>
     {properties.attack && (
       <div className={styles.propertyItem}>
         <span className={styles.propertyIcons.attack}>⚔️</span>
@@ -268,13 +282,13 @@ const CardProperties = ({ properties, styles }) => (
   </div>
 );
 
-// CardFront组件 - 接收scale参数
+// In the CardFront component, update the styles to ensure proper layout
 const CardFront = ({ cardtype, title, description, tags = [], properties = {}, image, scale = 1 }) => {
   const scaledStyles = createScaledStyles(scale);
   
   return (
-    <div className={`${baseStyles.cardFrame} ${CARD_THEMES[cardtype].background}`}>
-      <div className="relative z-10 h-full">
+    <div className={`${baseStyles.cardFrame} ${CARD_THEMES[cardtype].background}`} data-type='Card'>
+      <div className="relative z-10 flex flex-col h-full">
         <CardHeader title={title} type={cardtype} styles={scaledStyles} />
         <CardFrontImage image={image} />
         <CardProperties properties={properties} styles={scaledStyles} />
@@ -307,6 +321,7 @@ const CardBack = ({ backimage, cardtype }) => {
 };
 
 const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, properties, image, style }) => {
+  console.log("Card Description Tags:", tags); // 添加这行
   const [showBack, setShowBack] = useState(isFlipped);
   const cardFrontProps = { cardtype, title, description, tags, properties, image };
   const cardBackProps = { backimage, cardtype };

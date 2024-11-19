@@ -21,7 +21,7 @@ const CreateCardsPage = () => {
     cardtype: 'Boundary',
     title: 'Example Card',
     description: 'This is a sample card description. Edit this text to customize your card.',
-    tags: ['Tag1', 'Tag2'],
+    tags: ["物理界限", "个人空间", "身体接触"],
     properties: {
       attack: 5,
       defense: 3,
