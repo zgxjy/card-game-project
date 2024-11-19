@@ -47,7 +47,7 @@ const baseStyles = {
   // 头部区域
   cardHeader: "p-4 flex items-center justify-between border-b border-white/10",
   cardIcon: "p-2 rounded-lg bg-white/10",
-  cardTitle: "font-bold text-xl text-white truncate max-w-[220px]",
+  cardTitle: "font-bold text-xl text-white truncate max-w-[220px] height-auto overflow-hidden",
   cardType: "px-3 py-1 text-sm bg-white/10 rounded-full text-white/90",
 
   // 图片区域

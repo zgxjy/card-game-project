@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { usePrintConfig } from './PrintConfig';
-import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
+
 
 class PDFGenerator {
   constructor(config) {
