@@ -1,5 +1,5 @@
 // PrintPreview.jsx
-import React, { useRef, useEffect } from 'react';
+import React, { useRef} from 'react';
 import { usePrintConfig } from './PrintConfig';
 import GameCard from './GameCard';
 
@@ -53,44 +53,44 @@ export function PrintPreview({ cards }) {
     position: 'relative',
   };
 
-  // 其他计算函数保持不变
-  const shouldShowBack = (pageIndex, cardIndex) => {
-    const globalIndex = pageIndex * layout.cardsPerPage + cardIndex;
-    switch (displayMode) {
-      case 'back_only':
-        return true;
-      case 'alternating':
-        return pageIndex % 2 === 1;
-      case 'merged':
-        return globalIndex % 2 === 1;
-      default:
-        return false;
+  // 计算总页数 - 考虑双面打印模式
+  const calculateTotalPages = () => {
+    const cardsPerPage = layout.cardsPerPage;
+    const totalCards = cards.length;
+    const basicPages = Math.ceil(totalCards / cardsPerPage);
+    
+    // 双面打印模式下，每张卡片需要两页
+    return displayMode === 'duplex' ? basicPages * 2 : basicPages;
+  };
+
+  // 判断当前页是否为背面
+  const isBackPage = (pageIndex) => {
+    if (displayMode === 'duplex') {
+      return pageIndex % 2 === 1; // 偶数页显示背面
+    }
+    return displayMode === 'back_only';
+  };
+
+  // 获取实际卡片索引
+  const getCardsForPage = (pageIndex) => {
+    const cardsPerPage = layout.cardsPerPage;
+    
+    if (displayMode === 'duplex') {
+      // 在双面打印模式下，需要计算实际的卡片索引
+      const actualPageIndex = Math.floor(pageIndex / 2);
+      const startIndex = actualPageIndex * cardsPerPage;
+      const pageCards = cards.slice(startIndex, startIndex + cardsPerPage);
+      
+      // 确保卡片的正反面位置完全对应
+      return pageCards;
+    } else {
+      // 单面打印模式保持原样
+      const startIndex = pageIndex * cardsPerPage;
+      return cards.slice(startIndex, startIndex + cardsPerPage);
     }
   };
 
-  const getCardsForPage = (pageIndex) => {
-    const startIndex = pageIndex * layout.cardsPerPage;
-    return cards.slice(startIndex, startIndex + layout.cardsPerPage);
-  };
-
-  const totalPages = Math.ceil(cards.length / layout.cardsPerPage);
-
-  // 确保字体和图片加载完成
-  useEffect(() => {
-    const loadFonts = async () => {
-      await document.fonts.ready;
-      
-      // 触发重绘
-      if (previewRef.current) {
-        previewRef.current.style.opacity = '0.99';
-        requestAnimationFrame(() => {
-          previewRef.current.style.opacity = '1';
-        });
-      }
-    };
-    
-    loadFonts();
-  }, []);
+  const totalPages = calculateTotalPages();
 
   return (
     <div className="print-preview" ref={previewRef}>
@@ -115,7 +115,7 @@ export function PrintPreview({ cards }) {
                 >
                   <GameCard 
                     {...card} 
-                    isFlipped={shouldShowBack(pageIndex, cardIndex)}
+                    isFlipped={isBackPage(pageIndex)}
                     style={cardStyle}
                   />
                 </div>
@@ -124,6 +124,11 @@ export function PrintPreview({ cards }) {
           </div>
           <div className="page-number absolute bottom-2 right-2 text-gray-400">
             Page {pageIndex + 1} of {totalPages}
+            {displayMode === 'duplex' && (
+              <span className="ml-2">
+                ({isBackPage(pageIndex) ? '背面' : '正面'})
+              </span>
+            )}
           </div>
         </div>
       ))}

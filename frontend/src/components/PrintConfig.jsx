@@ -24,8 +24,7 @@ export const CARD_SIZES = {
 export const DISPLAY_MODES = {
   FRONT_ONLY: 'front_only',
   BACK_ONLY: 'back_only',
-  ALTERNATING: 'alternating',
-  MERGED: 'merged'
+  DUPLEX: 'duplex'  // 新的双面打印模式
 };
 
 // 首先添加清晰度常量
@@ -198,7 +197,7 @@ export function PrintConfigurator() {
         )}
       </div>
 
-      {/* Display Mode Selection */}
+      {/* Display Mode Selection */}     
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">展示模式</label>
         <select
@@ -208,9 +207,13 @@ export function PrintConfigurator() {
         >
           <option value={DISPLAY_MODES.FRONT_ONLY}>仅正面</option>
           <option value={DISPLAY_MODES.BACK_ONLY}>仅背面</option>
-          <option value={DISPLAY_MODES.ALTERNATING}>正反交替</option>
-          <option value={DISPLAY_MODES.MERGED}>正反合并</option>
+          <option value={DISPLAY_MODES.DUPLEX}>双面打印</option>
         </select>
+        {editingConfig.displayMode === DISPLAY_MODES.DUPLEX && (
+          <p className="mt-2 text-sm text-gray-600">
+            双面打印模式：奇数页显示正面，偶数页显示背面。打印时请选择双面打印选项。
+          </p>
+        )}
       </div>
 
       {/* Margins and Spacing */}
