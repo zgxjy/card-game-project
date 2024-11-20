@@ -1,21 +1,19 @@
 import React, { useState, useRef } from 'react';
 import { usePrintConfig } from './PrintConfig';
-import html2canvas from 'html2canvas';
+import domtoimage from 'dom-to-image';
 import jsPDF from 'jspdf';
-
-
 
 class PDFGenerator {
   constructor(config) {
     this.config = config;
     this.pdf = new jsPDF({
       unit: 'mm',
-      format: [config.paperSize.width, config.paperSize.height],
-      orientation: 'portrait'
+      format: [config.paperSize.width*config.pdfQuality, config.paperSize.height*config.pdfQuality],
+      orientation: 'portrait',
+      compress: false // 禁用PDF压缩以保持图片质量
     });
   }
 
-  // 转换函数
   mmToPx(mm) {
     return mm * 3.7795275591;
   }
@@ -23,41 +21,69 @@ class PDFGenerator {
   pxToMm(px) {
     return px / 3.7795275591;
   }
-
+  
   async generateFromPages(pages, onProgress) {
-    for (let i = 0; i < pages.length; i++) {
-      const page = pages[i];
+    // 跳过第一页，从第二页开始处理
+    const pageArray = Array.from(pages).slice(1);
+    
+    for (let i = 0; i < pageArray.length; i++) {
+      const page = pageArray[i];
       
-      // 如果不是第一页，添加新页
       if (i > 0) {
         this.pdf.addPage();
       }
 
       try {
-        // 使用html2canvas捕获整个页面
-        const canvas = await html2canvas(page, {
-          scale: 2, // 提高清晰度
-          useCORS: true,
-          allowTaint: true,
-          backgroundColor: null,
-          width: this.mmToPx(this.config.paperSize.width),
-          height: this.mmToPx(this.config.paperSize.height)
-        });
+        // 等待所有内容加载完成
+        await document.fonts.ready;
+        
+        // 确保页面内所有图片加载完成
+        const images = Array.from(page.getElementsByTagName('img'));
+        await Promise.all(images.map(img => {
+          if (img.complete) return Promise.resolve();
+          return new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = reject;
+          });
+        }));
 
-        // 将canvas内容添加到PDF
-        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+        // 计算实际尺寸
+        const width = this.mmToPx(this.config.paperSize.width*this.config.pdfQuality);
+        const height = this.mmToPx(this.config.paperSize.height*this.config.pdfQuality);
+
+        // 优化的 domtoimage 配置
+        const options = {
+          width: width,
+          height: height,
+          style: {
+            transform: 'none',
+            width: `${width}px`,
+            height: `${height}px`
+          },
+          skipFonts: false,
+          cacheBust: true,
+          foreignObjectRendering: true,
+          useCORS: true,
+          backgroundColor: '#ffffff'
+        };
+
+        // 使用 toPng 获取更高质量的输出
+        const dataUrl = await domtoimage.toPng(page, options);
+
+        // 添加到 PDF，使用高质量设置
         this.pdf.addImage(
-          imgData,
-          'JPEG',
+          dataUrl,
+          'PNG',
           0,
           0,
-          this.config.paperSize.width,
-          this.config.paperSize.height
+          this.config.paperSize.width*this.config.pdfQuality,
+          this.config.paperSize.height*this.config.pdfQuality,
+          undefined,
+          'NONE' // 使用无压缩模式
         );
 
-        // 更新进度
         if (onProgress) {
-          onProgress(((i + 1) / pages.length) * 100);
+          onProgress(((i + 1) / pageArray.length) * 100);
         }
       } catch (error) {
         console.error(`Failed to generate page ${i + 1}:`, error);
@@ -80,7 +106,6 @@ export function PDFExporter({ onExport }) {
       return;
     }
 
-    // 获取所有打印预览页面
     const printPages = document.querySelectorAll('.print-page');
     if (!printPages.length) {
       console.error('No print pages found');

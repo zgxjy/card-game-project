@@ -28,6 +28,13 @@ export const DISPLAY_MODES = {
   MERGED: 'merged'
 };
 
+// 首先添加清晰度常量
+export const PDF_QUALITY = {
+  LOW: 1,
+  MEDIUM: 1.5, 
+  HIGH: 2
+};
+
 export function PrintConfigProvider({ children }) {
   // 当前生效的配置
   const [activeConfig, setActiveConfig] = useState({
@@ -36,17 +43,13 @@ export function PrintConfigProvider({ children }) {
     customCardSize: { width: 63, height: 88 },
     displayMode: DISPLAY_MODES.FRONT_ONLY,
     margins: { top: 5, right: 5, bottom: 5, left: 5 },
-    spacing: { horizontal: 5, vertical: 5 }
+    spacing: { horizontal: 5, vertical: 5 },
+    pdfQuality: PDF_QUALITY.LOW // 默认使用中等清晰度
   });
 
   // 编辑中的配置
   const [editingConfig, setEditingConfig] = useState({
-    paperSize: PAPER_SIZES.A4,
-    cardSize: CARD_SIZES.POKER,
-    customCardSize: { width: 63, height: 88 },
-    displayMode: DISPLAY_MODES.FRONT_ONLY,
-    margins: { top: 5, right: 5, bottom: 5, left: 5 },
-    spacing: { horizontal: 5, vertical: 5 }
+    ...activeConfig
   });
 
   // 计算布局（使用当前生效的配置）
@@ -90,6 +93,7 @@ export function PrintConfigProvider({ children }) {
     setDisplayMode: (mode) => setEditingConfig(prev => ({ ...prev, displayMode: mode })),
     setMargins: (margins) => setEditingConfig(prev => ({ ...prev, margins })),
     setSpacing: (spacing) => setEditingConfig(prev => ({ ...prev, spacing })),
+    setPdfQuality: (quality) => setEditingConfig(prev => ({ ...prev, pdfQuality: quality })),
     // 布局计算
     calculateLayout,
     // 提交配置
@@ -122,6 +126,7 @@ export function PrintConfigurator() {
     setDisplayMode,
     setMargins,
     setSpacing,
+    setPdfQuality,
     applyConfig,
     hasChanges
   } = usePrintConfig();
@@ -240,6 +245,20 @@ export function PrintConfigurator() {
             <span className="text-xs">{editingConfig.spacing.horizontal}mm</span>
           </div>
         </div>
+      </div>
+      
+      {/* PDF Quality Selection */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2">PDF导出清晰度</label>
+        <select
+          value={editingConfig.pdfQuality}
+          onChange={(e) => setPdfQuality(e.target.value)}
+          className="w-full p-2 border rounded"
+        >
+          <option value={PDF_QUALITY.LOW}>标准</option>
+          <option value={PDF_QUALITY.MEDIUM}>放大1.5倍</option>
+          <option value={PDF_QUALITY.HIGH}>放大2倍</option>
+        </select>
       </div>
 
       {/* Apply Button */}

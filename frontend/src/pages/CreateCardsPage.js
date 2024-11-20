@@ -82,7 +82,7 @@ const CreateCardsPage = () => {
     height: "${cardConfig.style.height}"
   }}
 />`;
-    navigator.clipboard.writeText(code);
+    return code;
   };
 
   return (

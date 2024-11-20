@@ -109,21 +109,8 @@ const createScaledStyles = (scale = 1) => {
   };
 };
 
-export const noiseTexture = `
-  @keyframes noise {
-    0% { transform: translate(0,0) }
-    10% { transform: translate(-5%,-5%) }
-    20% { transform: translate(-10%,5%) }
-    30% { transform: translate(5%,-10%) }
-    40% { transform: translate(-5%,15%) }
-    50% { transform: translate(-10%,5%) }
-    60% { transform: translate(15%,0) }
-    70% { transform: translate(0,10%) }
-    80% { transform: translate(-15%,0) }
-    90% { transform: translate(10%,5%) }
-    100% { transform: translate(5%,0) }
-  }
 
+export const noiseTexture = `
   .noise-texture {
     position: relative;
     overflow: hidden;
@@ -132,13 +119,18 @@ export const noiseTexture = `
   .noise-texture::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
     background-image: url("/imgs/noise.jpg");
-    opacity: 0.1;
+    opacity: 0.3;
     mix-blend-mode: overlay;
+    pointer-events: none;
+    transform-origin: center center;
+    animation: none; /* 移除动画以确保正确捕获 */
+    background-size: 200px 200px;
+    background-repeat: repeat;
   }
 
   .noise-texture::after {
@@ -149,8 +141,17 @@ export const noiseTexture = `
     width: 100%;
     height: 100%;
     background: inherit;
-    opacity: 0.3;
+    opacity: 0.8;
     mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  @media print {
+    .noise-texture::before,
+    .noise-texture::after {
+      animation: none;
+      transform: none;
+    }
   }
 `;
 
@@ -321,7 +322,7 @@ const CardBack = ({ backimage, cardtype }) => {
 };
 
 const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, properties, image, style }) => {
-  console.log("Card Description Tags:", tags); // 添加这行
+  // console.log("Card Description Tags:", tags); // 添加这行
   const [showBack, setShowBack] = useState(isFlipped);
   const cardFrontProps = { cardtype, title, description, tags, properties, image };
   const cardBackProps = { backimage, cardtype };
