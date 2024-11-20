@@ -332,7 +332,7 @@ const GameCard = ({ isFlipped, backimage, cardtype, title, description, tags, pr
     setShowBack(isFlipped);
   }, [isFlipped]);
 
-  // 计算缩放比例
+  // 计算缩放比例：选择长宽比缩放最小的
   const scale = style ? Math.min(
     parseFloat(style.width) / 350,
     parseFloat(style.height) / 490
