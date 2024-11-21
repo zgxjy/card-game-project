@@ -7,7 +7,7 @@ import SidebarLayout from '../components/SidebarLayout';
 const AllCardsPage = lazy(() => import('../pages/AllCardsPage'));
 const FlipCardsPage = lazy(() => import('../pages/FlipCardsPage'));
 const PrintCardsPage = lazy(() => import('../pages/PrintCardsPage'));
-const CreateCardsPage = lazy(() => import('../pages/CreateCardsPage'));
+const CardsEditPage = lazy(() => import('../pages/CardsEditPage'));
 
 function AppRoutes() {
   return (
@@ -22,7 +22,7 @@ function AppRoutes() {
             <Route path="/" element={<AllCardsPage />} />
             <Route path="/flip" element={<FlipCardsPage />} />
             <Route path="/print" element={<PrintCardsPage />} />
-            <Route path="/create" element={<CreateCardsPage />} />
+            <Route path="/edit" element={<CardsEditPage />} />
           </Route>
         </Routes>
       </Suspense>

@@ -15,7 +15,7 @@ const TabButton = ({ active, onClick, children }) => (
   </button>
 );
 
-const CreateCardsPage = () => {
+const CardsEditPage = () => {
   const [cardConfig, setCardConfig] = useState({
     isFlipped: false,
     cardtype: 'Boundary',
@@ -299,4 +299,4 @@ const CreateCardsPage = () => {
   );
 };
 
-export default CreateCardsPage;
+export default CardsEditPage;

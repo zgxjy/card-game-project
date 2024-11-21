@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutGrid, FlipHorizontal, Printer, PlusCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LayoutGrid, FlipHorizontal, Printer, Edit, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   const location = useLocation();
@@ -9,7 +9,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
     { path: '/', icon: LayoutGrid, label: '所有卡片' },
     { path: '/flip', icon: FlipHorizontal, label: '翻转卡片' },
     { path: '/print', icon: Printer, label: '打印卡片' },
-    { path: '/create', icon: PlusCircle, label: '创建卡片' },
+    { path: '/edit', icon: Edit, label: '编辑卡片' },
   ];
 
   return (
