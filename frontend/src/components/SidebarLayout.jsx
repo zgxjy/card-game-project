@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import { Outlet } from 'react-router-dom';
 
-const Layout = () => {
+const SidebarLayout = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
@@ -15,4 +15,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default SidebarLayout;

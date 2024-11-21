@@ -311,14 +311,14 @@ const AllCardsStructure = ({ cards }) => {
     }
     if (window.confirm(`确定要打印选中的 ${selectedIds.length} 张卡片吗？`)) {
       try {
-        console.log('Selected IDs:', selectedIds);
+        // console.log('Selected IDs:', selectedIds);
         const cardsdata = await findCards(selectedIds);
         sessionStorage.setItem('printCards', JSON.stringify(cardsdata));
         toast.success('打印卡片信息成功获取',{
           'position':"top-center",
           'duration':3000
         });
-        console.log('Printing cards:', cardsdata);
+        // console.log('Printing cards:', cardsdata);
         navigate('/print')
 
       } catch (error) {

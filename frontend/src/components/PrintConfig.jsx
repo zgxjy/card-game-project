@@ -27,6 +27,12 @@ export const DISPLAY_MODES = {
   DUPLEX: 'duplex'  // 新的双面打印模式
 };
 
+// 新增翻转方向常量
+export const FLIP_DIRECTIONS = {
+  LONG_EDGE: 'long_edge',     // 长边翻转（书本式）
+  SHORT_EDGE: 'short_edge'    // 短边翻转（日历式）
+};
+
 // 首先添加清晰度常量
 export const PDF_QUALITY = {
   LOW: 1,
@@ -43,7 +49,8 @@ export function PrintConfigProvider({ children }) {
     displayMode: DISPLAY_MODES.FRONT_ONLY,
     margins: { top: 5, right: 5, bottom: 5, left: 5 },
     spacing: { horizontal: 5, vertical: 5 },
-    pdfQuality: PDF_QUALITY.LOW // 默认使用中等清晰度
+    pdfQuality: PDF_QUALITY.LOW, // 默认使用中等清晰度
+    flipDirection: FLIP_DIRECTIONS.LONG_EDGE  // 新增默认值
   });
 
   // 编辑中的配置
@@ -71,7 +78,8 @@ export function PrintConfigProvider({ children }) {
       pageHeight: activeConfig.paperSize.height,
       cardWidth: currentCardSize.width,
       cardHeight: currentCardSize.height,
-      spacing: activeConfig.spacing
+      spacing: activeConfig.spacing,
+    flipDirection: activeConfig.flipDirection  // 添加翻转方向
     };
   }, [activeConfig]);
 
@@ -93,6 +101,7 @@ export function PrintConfigProvider({ children }) {
     setMargins: (margins) => setEditingConfig(prev => ({ ...prev, margins })),
     setSpacing: (spacing) => setEditingConfig(prev => ({ ...prev, spacing })),
     setPdfQuality: (quality) => setEditingConfig(prev => ({ ...prev, pdfQuality: quality })),
+    setFlipDirection: (direction) => setEditingConfig(prev => ({ ...prev, flipDirection: direction })),
     // 布局计算
     calculateLayout,
     // 提交配置
@@ -126,6 +135,7 @@ export function PrintConfigurator() {
     setMargins,
     setSpacing,
     setPdfQuality,
+    setFlipDirection,
     applyConfig,
     hasChanges
   } = usePrintConfig();
@@ -197,25 +207,6 @@ export function PrintConfigurator() {
         )}
       </div>
 
-      {/* Display Mode Selection */}     
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-2">展示模式</label>
-        <select
-          value={editingConfig.displayMode}
-          onChange={(e) => setDisplayMode(e.target.value)}
-          className="w-full p-2 border rounded"
-        >
-          <option value={DISPLAY_MODES.FRONT_ONLY}>仅正面</option>
-          <option value={DISPLAY_MODES.BACK_ONLY}>仅背面</option>
-          <option value={DISPLAY_MODES.DUPLEX}>双面打印</option>
-        </select>
-        {editingConfig.displayMode === DISPLAY_MODES.DUPLEX && (
-          <p className="mt-2 text-sm text-gray-600">
-            双面打印模式：奇数页显示正面，偶数页显示背面。打印时请选择双面打印选项。
-          </p>
-        )}
-      </div>
-
       {/* Margins and Spacing */}
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">边距和间距</label>
@@ -249,7 +240,43 @@ export function PrintConfigurator() {
           </div>
         </div>
       </div>
-      
+      {/* Display Mode Selection */}     
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2">展示模式</label>
+        <select
+          value={editingConfig.displayMode}
+          onChange={(e) => setDisplayMode(e.target.value)}
+          className="w-full p-2 border rounded"
+        >
+          <option value={DISPLAY_MODES.FRONT_ONLY}>仅正面</option>
+          <option value={DISPLAY_MODES.BACK_ONLY}>仅背面</option>
+          <option value={DISPLAY_MODES.DUPLEX}>双面打印</option>
+        </select>
+        {editingConfig.displayMode === DISPLAY_MODES.DUPLEX && (
+          <p className="mt-2 text-sm text-gray-600">
+            双面打印模式：奇数页显示正面，偶数页显示背面。打印时请选择双面打印选项。
+          </p>
+        )}
+      </div>
+
+      {/* 新增翻转方向选择 */}
+      {editingConfig.displayMode === DISPLAY_MODES.DUPLEX && (
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-2">双面翻转方向</label>
+          <select
+            value={editingConfig.flipDirection}
+            onChange={(e) => setFlipDirection(e.target.value)}
+            className="w-full p-2 border rounded"
+          >
+            <option value={FLIP_DIRECTIONS.LONG_EDGE}>长边翻转（书本式）</option>
+            <option value={FLIP_DIRECTIONS.SHORT_EDGE}>短边翻转（日历式）</option>
+          </select>
+          <p className="mt-2 text-sm text-gray-600">
+            长边翻转：类似书本翻页 | 短边翻转：类似日历翻页
+          </p>
+        </div>
+      )}
+
       {/* PDF Quality Selection */}
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">PDF导出清晰度</label>

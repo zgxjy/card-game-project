@@ -1,7 +1,7 @@
 // src/routes/Routes.js
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from '../components/Layout';
+import SidebarLayout from '../components/SidebarLayout';
 
 // 懒加载页面组件
 const AllCardsPage = lazy(() => import('../pages/AllCardsPage'));
@@ -18,7 +18,7 @@ function AppRoutes() {
         </div>
       }>
         <Routes>
-          <Route element={<Layout />}>
+          <Route element={<SidebarLayout />}>
             <Route path="/" element={<AllCardsPage />} />
             <Route path="/flip" element={<FlipCardsPage />} />
             <Route path="/print" element={<PrintCardsPage />} />
