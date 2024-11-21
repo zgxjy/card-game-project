@@ -1,26 +1,32 @@
-import React, { useRef} from 'react';
+import React, { useRef } from 'react';
 import { usePrintConfig } from './PrintConfig';
 import GameCard from './GameCard';
 
-
 export function PrintPreview({ cards }) {
-  const { calculateLayout, displayMode, paperSize, cardSize, margins, spacing, pdfQuality,flipDirection} = usePrintConfig();
+  const { 
+    calculateLayout, 
+    displayMode, 
+    paperSize, 
+    cardSize, 
+    margins, 
+    spacing, 
+    pdfQuality, 
+    flipDirection 
+  } = usePrintConfig();
   const layout = calculateLayout();
   const previewRef = useRef(null);
 
   const mmToPx = (mm) => mm * 3.7795275591;
   
-  const actualWidth = mmToPx(paperSize.width*pdfQuality);
-  const actualHeight = mmToPx(paperSize.height*pdfQuality);
+  const actualWidth = mmToPx(paperSize.width * pdfQuality);
+  const actualHeight = mmToPx(paperSize.height * pdfQuality);
 
   const pageContainerStyle = {
     width: `${actualWidth}px`,
     height: `${actualHeight}px`,
     margin: '20px auto',
     position: 'relative',
-    // 重要：移除任何可能影响定位的属性
     transform: 'none',
-    //确保容器大小的精确
     boxSizing: 'border-box',
   };
 
@@ -36,12 +42,11 @@ export function PrintPreview({ cards }) {
   };
 
   const cardStyle = {
-    width: `${mmToPx(cardSize.width*pdfQuality)}px`,
-    height: `${mmToPx(cardSize.height*pdfQuality)}px`,
+    width: `${mmToPx(cardSize.width * pdfQuality)}px`,
+    height: `${mmToPx(cardSize.height * pdfQuality)}px`,
     transform: 'none',
   };
 
-  // 新增：根据是否是背面页面调整网格布局
   const getGridStyle = (pageIndex) => {
     const baseGridStyle = {
       display: 'grid',
@@ -52,11 +57,17 @@ export function PrintPreview({ cards }) {
     };
 
     if (displayMode === 'duplex' && isBackPage(pageIndex)) {
-      // 对于背面页面，反转列顺序
-      return {
-        ...baseGridStyle,
-        direction: 'rtl', // 从右到左排列
-      };
+      if (flipDirection === 'long_edge') {
+        return {
+          ...baseGridStyle,
+          transform: 'scaleX(-1)',
+        };
+      } else {
+        return {
+          ...baseGridStyle,
+          transform: 'scaleY(-1)',
+        };
+      }
     }
 
     return baseGridStyle;
@@ -72,7 +83,7 @@ export function PrintPreview({ cards }) {
 
   const isBackPage = (pageIndex) => {
     if (displayMode === 'duplex') {
-      return pageIndex % 2 === 1; // 偶数页显示背面
+      return pageIndex % 2 === 1;
     }
     return displayMode === 'back_only';
   };
@@ -83,49 +94,7 @@ export function PrintPreview({ cards }) {
     if (displayMode === 'duplex') {
       const actualPageIndex = Math.floor(pageIndex / 2);
       const startIndex = actualPageIndex * cardsPerPage;
-      const pageCards = cards.slice(startIndex, startIndex + cardsPerPage); 
-    
-      if (isBackPage(pageIndex)) {
-        if (flipDirection === "long_edge") {
-          // 长边翻转：上下反转每一列的卡片
-          // const rowCount = layout.cardsPerColumn;
-          const colCount = layout.cardsPerRow;
-          const reorderedCards = [];
-          
-          for (let col = 0; col < colCount; col++) {
-            // 获取当前列的卡片，并反转顺序
-            const columnCards = pageCards
-              .filter((_, index) => index % colCount === col)
-              .reverse();
-            
-            // 将反转后的列卡片重新插入
-            columnCards.forEach((card, rowIndex) => {
-              const insertIndex = rowIndex * colCount + col;
-              reorderedCards[insertIndex] = card;
-            });
-          }
-          
-          return reorderedCards;
-        } else {
-          // 短边翻转：从底部重新排列网格
-          const rowCount = layout.cardsPerColumn;
-          const colCount = layout.cardsPerRow;
-          const reorderedCards = [];
-          
-          for (let row = rowCount - 1; row >= 0; row--) {
-            for (let col = 0; col < colCount; col++) {
-              const index = row * colCount + col;
-              if (index < pageCards.length) {
-                reorderedCards.push(pageCards[index]);
-              }
-            }
-          }
-          
-          return reorderedCards;
-        }
-      }
-      
-      return pageCards;
+      return cards.slice(startIndex, startIndex + cardsPerPage);
     } else {
       const startIndex = pageIndex * cardsPerPage;
       return cards.slice(startIndex, startIndex + cardsPerPage);
@@ -147,7 +116,9 @@ export function PrintPreview({ cards }) {
             className="print-page"
             data-page={pageIndex + 1}
           >
-            <div style={getGridStyle(pageIndex)}>
+            <div 
+              style={getGridStyle(pageIndex)}
+            >
               {getCardsForPage(pageIndex).map((card, cardIndex) => (
                 <div 
                   key={cardIndex} 

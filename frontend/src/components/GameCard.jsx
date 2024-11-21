@@ -312,7 +312,7 @@ const CardBack = ({ backimage, cardtype }) => {
       {!backgroundImage && (
         <div className="flex items-center justify-center w-full h-full">
           <div className="w-32 h-32 bg-black/70 rounded-full flex items-center justify-center">
-            <div className="w-20 h-20 bg-white rounded-full">{cardtype}</div>
+            <div className="w-20 h-20 bg-white rounded-full"></div>
           </div>
         </div>
       )}
